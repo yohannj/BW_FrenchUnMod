@@ -922,17 +922,15 @@ if (GM_getValue(id+"UM_OP_unmodon", true)) {
 			nowy.style.marginLeft="10px";
 			nowy.id="nowy";
 			if (input.nextSibling) input.parentNode.insertBefore(nowy, input.nextSibling); else input.parentNode.appendChild(nowy);
+
 			document.getElementById('nowy').addEventListener('click', function() {
 				polka = document.getElementById('hc_c0');
 				items = polka.getElementsByClassName('item');
+
 				for (i=0; i<items.length; i++) {
 					if(items[i].getElementsByTagName('TD')[1].innerHTML.indexOf('Epique') == -1) {
-						itemLink = items[i].getElementsByTagName('TD')[2].innerHTML;
-						itemLink = itemLink.replace(/&lt;/gi,"<");
-						itemLink = itemLink.replace(/&gt;/gi,">");
-						itemLink = itemLink.replace("PLN","");
-						koszt = (itemLink.substring((itemLink.search('<b>')+3),itemLink.search('</b>')).replace(/ /gi,""));
-						if (parseInt(koszt)<GM_getValue(id+'UM_zkclean','2000') && parseInt(koszt)>49) {
+						koszt = parseInt((/((?:\d+\s*)+)LOL/.exec(items[i].innerHTML))[1].replace(/\s/g, ""));
+						if (koszt < GM_getValue(id+'UM_zkclean','2000') && koszt > 49) {
 							sellItem = items[i].getElementsByTagName('TD')[1].getElementsByTagName('INPUT')[0];
 							sellItem.click();
 						}
