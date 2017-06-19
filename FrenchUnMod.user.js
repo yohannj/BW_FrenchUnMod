@@ -253,8 +253,6 @@ var expePlayer = function(TRindex) {
 }
 
 var dspProfile = function() {
-	myClan = GM_getValue(location.hostname + "clanName");
-
 	var TABLE = document.getElementsByTagName("TABLE");
 	var TD = TABLE[3].getElementsByTagName("TD");
 	var newRow = TABLE[3].insertRow(6);
@@ -266,10 +264,7 @@ var dspProfile = function() {
 	start	= data.substring(nba+2, nbb);
 	// on recupere la race et le nom du joueur
 	RACE	= TABLE[3].getElementsByTagName("TR")[0].getElementsByTagName("TD")[1].innerHTML;
-	NOM	= document.getElementsByClassName("profile-hdr")[0].innerHTML;
-	nba	= NOM.indexOf("Profil du vampire ", 0);
-	nbb	= NOM.length;
-	NOM	= NOM.substring(nba+18, nbb-1);
+	NOM	= /Profil du vampire (.*)/.exec(document.getElementsByClassName("profile-hdr")[0].innerHTML)[1];
 	GM_setValue(location.hostname + "RACE_"+NOM, RACE);
 
 	// on recupere le sexe
@@ -424,16 +419,6 @@ function dspClan() {
 	}
 }
 
-
-function getClan(){
-	// on recupere le tag de son clan
-	var TABLE	= document.getElementsByTagName("TABLE");
-	var clanName	= TABLE[3].getElementsByTagName("TR")[1].getElementsByTagName("TD")[1].innerHTML;
-	nba = clanName.indexOf("<b>", 0);
-	nbb = clanName.indexOf("</b>", nba);
-	clanName = clanName.substring(nba+3, nbb);
-	return clanName;
-}
 
 function dspRank(){
 	var TABLE	= document.getElementsByClassName("rank")[0];
@@ -1920,7 +1905,8 @@ if (GM_getValue(id+"UM_OP_unmodon", true)) {
 		}
 	}
 
-	if (("?a=msg"==a.substring(0,6) || "?mid="==a.substring(0,5)) && GM_getValue(id+"UM_OP_fightstat", true)) {
+	//http://r4.fr.bloodwars.net/showmsg.php?a=cevent&playerId=1468&enemyNr=32
+	if (("?a=msg"==a.substring(0,6) || "?mid="==a.substring(0,5) || /\?a=cevent&playerId=\d+&enemyNr=\d+/.exec(a) !== null) && GM_getValue(id+"UM_OP_fightstat", true)) {
 		rlcs = document.getElementsByClassName('rlc');
 		for(var i = 0; i < rlcs.length; ++i) {
 			rlc=rlcs[i];
@@ -2104,7 +2090,7 @@ if (GM_getValue(id+"UM_OP_unmodon", true)) {
 		}
 	}
 
-	if (("?a=msg"==a || (a.indexOf("?a=msg") > -1 && a.indexOf("&delmsg=") > -1)) && GM_getValue(id+"UM_OP_invMsg", true)) {
+	if (("?a=msg"==a || (a.indexOf("?a=msg") > -1 && a.indexOf("do=delMsgs") > -1)) && GM_getValue(id+"UM_OP_invMsg", true)) {
 		var invMessages = function(ids) {
 			var tr = document.getElementsByTagName('tr');
 			for (var i = 0; i < tr.length; ++i) {
