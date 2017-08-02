@@ -2090,7 +2090,7 @@ if (GM_getValue(id+"UM_OP_unmodon", true)) {
 		}
 	}
 
-	if (("?a=msg"==a || (a.indexOf("?a=msg") > -1 && a.indexOf("do=delMsgs") > -1)) && GM_getValue(id+"UM_OP_invMsg", true)) {
+	if (a.indexOf("?a=msg") > -1 && document.getElementById('messagesTable') !== null && GM_getValue(id+"UM_OP_invMsg", true)) {
 		var invMessages = function(ids) {
 			var tr = document.getElementsByTagName('tr');
 			for (var i = 0; i < tr.length; ++i) {
@@ -2110,7 +2110,6 @@ if (GM_getValue(id+"UM_OP_unmodon", true)) {
 
 			}
 		};
-
 
 		var optionLine = document.createElement('SPAN');
 		optionLine.innerHTML='<center>Inverser la sélection des messages : <input id="inv_trade" class="button" style="margin: 7px 0px;" value="Enchères/MN" type="button"> <input id="inv_embusc" class="button" style="margin: 7px 0px;" value="Embuscades" type="button"> <input id="inv_spies" class="button" style="margin: 7px 0px;" value="Espionnages" type="button"> <input id="inv_exp" class="button" style="margin: 7px 0px;" value="Expé/RDC/Sièges" type="button"> <input id="inv_quest" class="button" style="margin: 7px 0px;" value="Quêtes" type="button"> <input id="inv_others" class="button" style="margin: 7px 0px;" value="Autres" type="button"></center>';
