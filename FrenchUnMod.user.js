@@ -3,7 +3,7 @@
 // @namespace   http://mega.szajb.us/juenizer/unmod/
 // @description Advanced Bloodwars MODIFICATIONS
 // @include     http://r*.fr.bloodwars.net/*
-// @version     1.39.9
+// @version     1.39.10
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_setClipboard
