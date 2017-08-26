@@ -857,29 +857,43 @@ if (GM_getValue(id+"UM_OP_unmodon", true)) {
 			unsafeWindow.clk_equip = function(event, stock) {
 			}
 
-			var itemS = $('.item');
-
-			for (var i=0; i<itemS.length; i++) {
-				ta = itemS[i].getElementsByTagName('table');
+			var itemS = $('#hc_carm1').find('.item');
+			for (var i = 0; i < itemS.length; i++) {
+				ta = itemS[i].getElementsByTagName('table')[0];
+				var itemName = /CAPTION,'(.*?)'\);"/.exec(ta.innerHTML)[1];
 				krew = false;
-				if (GM_getValue(id+"UM_OP_zkkrew", true)) if (ta[0].innerHTML.search('Ours')>0 || ta[0].innerHTML.search('Chamanis')>0 || ta[0].innerHTML.search('Osseu')>0 || ta[0].innerHTML.search('Dracula')>0 || ta[0].innerHTML.search('Élastique')>0 || ta[0].innerHTML.search('Astral')>0 || ta[0].innerHTML.search('Du Sang')>0 || (ta[0].innerHTML.search('Dur')>0 && (ta[0].innerHTML.search('Peau Dur')<0 || ta[0].innerHTML.search('Peau Dur') > ta[0].innerHTML.search('Dur')))) {
-					ta[0].style.backgroundColor="#aa0000";
-					if (itemS[i].innerHTML.indexOf('Propriétaire')!=-1) krew=true;
+
+				var userWantsColoredZkKrewItems = GM_getValue(id+"UM_OP_zkkrew", true);
+				var ours = itemName.search('Ours') > 0;
+				var chama = itemName.search('Chamanis') > 0;
+				var osseux = itemName.search('Osseu') > 0;
+				var dracula = itemName.search('Dracula') > 0;
+				var elastique = itemName.search('Élastique') > 0;
+				var astral = itemName.search('Astral') > 0;
+				var sang = itemName.search('Du Sang') > 0;
+				var dur = itemName.search('Dur')>0 && (itemName.search('Peau Dur') < 0 || itemName.search('Peau Dur') > itemName.search('Dur'));
+				var necromancien = itemName.search('Nécromancien') > 0;
+
+				if (userWantsColoredZkKrewItems && (ours || chama || osseux || dracula || elastique || astral || sang || dur || necromancien)) {
+					ta.style.backgroundColor="#aa0000";
+					if (itemS[i].innerHTML.indexOf('Propriétaire') != -1) {
+						krew = true;
+					}
 				}
 
 				if (krew==true) {
-					ta[0].addEventListener('mousedown', function() {
+					ta.addEventListener('mousedown', function() {
 						var itemS = $('.item');
 						for (var i=0; i<itemS.length; i++) {
 							var ta = itemS[i].getElementsByTagName('table');
-							if (ta[0].style.backgroundColor=="rgb(170, 0, 0)" && ta[0].innerHTML.indexOf('Propriétaire')!=-1) {
-								ta[0].getElementsByClassName('checkbox')[0].click();
+							if (ta.style.backgroundColor=="rgb(170, 0, 0)" && ta.innerHTML.indexOf('Propriétaire')!=-1) {
+								ta.getElementsByClassName('checkbox')[0].click();
 							}
 						}
 					}, false);
 				}
 				if (!krew) {
-					ta[0].addEventListener('mousedown', function() {
+					ta.addEventListener('mousedown', function() {
 						this.getElementsByClassName('checkbox')[0].click();
 					}, false);
 				}
