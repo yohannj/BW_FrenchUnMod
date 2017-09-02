@@ -4,7 +4,7 @@
 // @description Advanced Bloodwars MODIFICATIONS
 // @include     http://r*.fr.bloodwars.net/*
 // @include     https://r*.fr.bloodwars.net/*
-// @version     1.39.12
+// @version     1.39.13
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_setClipboard
@@ -2233,10 +2233,9 @@ if (GM_getValue(id+"UM_OP_unmodon", true)) {
 		}
 	}
 
-	if ("?a=build"==a.substring(0,8) && GM_getValue(id+"UM_OP_statBuilding", true)) {
+	if ("?a=build"==a.substring(0,8)) {
 		bld = document.getElementsByClassName('bldprogress');
 		if (bld.length) {
-			GM_setValue(id+"UM_bld",true);
 			bldtime = /class="bldtimeleft">(.*?)</.exec(bld[0].innerHTML)[1];
 			var timeArray = /(?:(\d+)\sj\.\s?)?(\d+):(\d+):(\d+)/.exec(bldtime);
 			var timeArrayLength = timeArray.length;
@@ -2272,7 +2271,6 @@ if (GM_getValue(id+"UM_OP_unmodon", true)) {
 			GM_setValue(id+'UM_bgodzina',0);
 			GM_setValue(id+'UM_bminuty',0);
 			GM_setValue(id+'UM_bsekundy',0);
-			GM_setValue(id+"UM_bld",false);
 		}
 	}
 
@@ -2483,7 +2481,7 @@ if (GM_getValue(id+"UM_OP_unmodon", true)) {
 	var timers='&nbsp;';
 	if (e) timers+='<a href="?a=cevent"><span style="color: red;">&nbsp;EXPE:</span> <span style="color: red;" id="exp">00:00:00</span></a>&nbsp;&nbsp;';
 	if (k) timers+='<a href="?a=swr"><span style="color: red;">RDC:</span> <span style="color: red;" id="kw">00:00:00</span></a>&nbsp;&nbsp;';
-	if (b) timers+='<a href="?a=build"><span style="color: red;">CONSTRUCTION:</span> <span style="color: red;" id="unmodbld">00:00:00</span></a>&nbsp;&nbsp;';
+	if (b && GM_getValue(id+"UM_OP_statBuilding", true)) timers+='<a href="?a=build"><span style="color: red;">CONSTRUCTION:</span> <span style="color: red;" id="unmodbld">00:00:00</span></a>&nbsp;&nbsp;';
 	if (au) timers+='<a href="?a=auction"><span style="color: red;">ENCHÈRE:</span> <span style="color: red;" id="unmodauk">00:00:00</span></a>&nbsp;&nbsp;';
 	if (GM_getValue(id+'UM_OP_alarm',false)) {
 		i0=""; if (GM_getValue(id+'UM_OP_alarm_h',0)<10) i0="0";
