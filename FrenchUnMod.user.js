@@ -4,7 +4,7 @@
 // @description Advanced Bloodwars MODIFICATIONS
 // @include     http://r*.fr.bloodwars.net/*
 // @include     https://r*.fr.bloodwars.net/*
-// @version     1.39.11
+// @version     1.39.12
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_setClipboard
@@ -592,8 +592,8 @@ if (a=="?a=settings") {
 	opcje+=' id="UM_OP_invMsg"> permet d\'inverser les messages sélectionnés selon leur type</td></tr>';
 
 	opcje+='<tr><td><input type="checkbox"';
-	if (GM_getValue(id+"UM_OP_msgQuestPage", true)) opcje+=' checked="checked"';
-	opcje+=' id="UM_OP_msgQuestPage"> affiche la date supposée des prochains event et des news forum sur la page quête</td></tr>';
+	if (GM_getValue(id+"UM_OP_statBuilding", true)) opcje+=' checked="checked"';
+	opcje+=' id="UM_OP_statBuilding"> affiche l\'heure de fin de la prochaine construction en haut de l\'écran</td></tr>';
 
 	opcje+='<tr><td><input type="checkbox"';
 	if (GM_getValue(id+"UM_OP_notesEverywhere", true)) opcje+=' checked="checked"';
@@ -698,6 +698,7 @@ if (a=="?a=settings") {
 	document.getElementById('UM_OP_auction').addEventListener('click', function() {GM_setValue(id+"UM_OP_auction",this.checked);}, false);
 	document.getElementById('UM_OP_preFillArcaneEvo').addEventListener('click', function() {GM_setValue(id+"UM_OP_preFillArcaneEvo",this.checked);}, false);
 	document.getElementById('UM_OP_fightstat').addEventListener('click', function() {GM_setValue(id+"UM_OP_fightstat",this.checked);}, false);
+	document.getElementById('UM_OP_statBuilding').addEventListener('click', function() {GM_setValue(id+"UM_OP_statBuilding",this.checked);}, false);
 	document.getElementById('UM_OP_statKothExpe').addEventListener('click', function() {GM_setValue(id+"UM_OP_statKothExpe",this.checked);}, false);
 	document.getElementById('UM_OP_evoNotes').addEventListener('click', function() {GM_setValue(id+"UM_OP_evoNotes",this.checked);}, false);
 	document.getElementById('UM_OP_ukryj').addEventListener('click', function() {GM_setValue(id+"UM_OP_ukryj",this.checked);}, false);
@@ -713,7 +714,6 @@ if (a=="?a=settings") {
 	document.getElementById('UM_OP_alarm').addEventListener('click', function() {GM_setValue(id+"UM_OP_alarm",this.checked);}, false);
 	document.getElementById('UM_OP_polki').addEventListener('click', function() {GM_setValue(id+"UM_OP_polki",this.checked);}, false);
 	document.getElementById('UM_OP_klansort').addEventListener('click', function() {GM_setValue(id+"UM_OP_klansort",this.checked);}, false);
-	document.getElementById('UM_OP_msgQuestPage').addEventListener('click', function() {GM_setValue(id+"UM_OP_msgQuestPage",this.checked);}, false);
 	document.getElementById('UM_OP_showHideArenaStats').addEventListener('click', function() {GM_setValue(id+"UM_OP_showHideArenaStats",this.checked);}, false);
 	document.getElementById('UM_OP_copyAuction').addEventListener('click', function() {GM_setValue(id+"UM_OP_copyAuction",this.checked);}, false);
 	document.getElementById('UM_OP_invMsg').addEventListener('click', function() {GM_setValue(id+"UM_OP_invMsg",this.checked);}, false);
@@ -730,7 +730,7 @@ if (a=="?a=settings") {
 	document.getElementById('UM_OP_polka8').addEventListener('keyup', function() {GM_setValue(id+"UM_OP_polka8",this.value);}, false);
 	document.getElementById('UM_OP_polka9').addEventListener('keyup', function() {GM_setValue(id+"UM_OP_polka9",this.value);}, false);
 	document.getElementById('UM_OP_polka10').addEventListener('keyup', function() {GM_setValue(id+"UM_OP_polka10",this.value);}, false);
-	document.getElementById('UM_urlsound').addEventListener('keyup', function() {GM_setValue(id+"UM_urlsound",this.value);}, false);
+	//document.getElementById('UM_urlsound').addEventListener('keyup', function() {GM_setValue(id+"UM_urlsound",this.value);}, false);
 	document.getElementById('UM_zkclean').addEventListener('keyup', function() {GM_setValue(id+"UM_zkclean",this.value);}, false);
 }
 
@@ -773,15 +773,14 @@ if (GM_getValue(id+"UM_OP_unmodon", true)) {
 		if (test[t].innerHTML=='Chat instantané') { test[t].href='http://webchat.quakenet.org/?channels=bloodwars-fr'; break; }
 	}
 
-	/*if(a.substring(0,11)=="?a=talizman" && GM_getValue(id+"UM_OP_talismanzk", true)) {
+	if(a.substring(0,11)=="?a=talizman" && GM_getValue(id+"UM_OP_talismanzk", true)) {
 		var talismanSet = $('.equip')[0].outerHTML;
-		GM_setValue(id+'UM_talismanSet',talismanSet);
 
 		if(GM_getValue(id+"UM_OP_equipnopopup", true)) {
 			var talismanRegex = /if \(confirm\('Êtes vous certain de vouloir équiper l`ensemble de talismans numéro \d+ \([^\)]+\)\?'\)\) /g;
 			$('.equip')[0].outerHTML = talismanSet.replace(talismanRegex, '');
 		}
-	}*/
+	}
 
 	if (a.substring(0,8)=="?a=equip") {
 		if (GM_getValue(id+"UM_OP_polki", false)) {
@@ -857,7 +856,8 @@ if (GM_getValue(id+"UM_OP_unmodon", true)) {
 			unsafeWindow.clk_equip = function(event, stock) {
 			}
 
-			var itemS = $('#hc_carm1').find('.item');
+			//var itemS = $('#hc_carm1').find('.item');
+			var itemS = $('.item');
 			for (var i = 0; i < itemS.length; i++) {
 				ta = itemS[i].getElementsByTagName('table')[0];
 				var itemName = /CAPTION,'(.*?)'\);"/.exec(ta.innerHTML)[1];
@@ -873,8 +873,12 @@ if (GM_getValue(id+"UM_OP_unmodon", true)) {
 				var sang = itemName.search('Du Sang') > 0;
 				var dur = itemName.search('Dur')>0 && (itemName.search('Peau Dur') < 0 || itemName.search('Peau Dur') > itemName.search('Dur'));
 				var necromancien = itemName.search('Nécromancien') > 0;
+				var archaique = itemName.search('Archaique') > 0;
+				var distingue = itemName.search('Distingué') > 0;
+				var fauve = itemName.search('Fauve') > 0;
+				var hypnotique = itemName.search('Hypnotique') > 0;
 
-				if (userWantsColoredZkKrewItems && (ours || chama || osseux || dracula || elastique || astral || sang || dur || necromancien)) {
+				if (userWantsColoredZkKrewItems && (ours || chama || osseux || dracula || elastique || astral || sang || dur || necromancien || archaique || distingue || fauve || hypnotique)) {
 					ta.style.backgroundColor="#aa0000";
 					if (itemS[i].innerHTML.indexOf('Propriétaire') != -1) {
 						krew = true;
@@ -2229,7 +2233,7 @@ if (GM_getValue(id+"UM_OP_unmodon", true)) {
 		}
 	}
 
-	if ("?a=build"==a.substring(0,8)) {
+	if ("?a=build"==a.substring(0,8) && GM_getValue(id+"UM_OP_statBuilding", true)) {
 		bld = document.getElementsByClassName('bldprogress');
 		if (bld.length) {
 			GM_setValue(id+"UM_bld",true);
@@ -2628,16 +2632,6 @@ if (GM_getValue(id+"UM_OP_unmodon", true)) {
 				}
 			}
 		}
-	}
-	if (a=="?a=quest") {
-
-		if (GM_getValue(id+"UM_OP_msgQuestPage",true)) {
-			version = document.getElementById('content-mid');
-			ver2 = document.createElement('SPAN');
-			ver2.innerHTML='<br><center><iframe scrolling=no src="http://amendil.free.fr/bloodwars/UnMod/frenchUnmod_sondages.html" width="800" style="margin-top: -20px;" frameborder=0 height="56"></iframe></center>';
-			version.insertBefore(ver2,version.firstChild);
-		}
-
 	}
 
 	if (a=="?a=ambush") {
