@@ -4,7 +4,7 @@
 // @description Advanced Bloodwars MODIFICATIONS
 // @include     http://r*.fr.bloodwars.net/*
 // @include     https://r*.fr.bloodwars.net/*
-// @version     1.39.13
+// @version     1.39.14
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_setClipboard
@@ -874,31 +874,34 @@ if (GM_getValue(id+"UM_OP_unmodon", true)) {
 				var dur = itemName.search('Dur')>0 && (itemName.search('Peau Dur') < 0 || itemName.search('Peau Dur') > itemName.search('Dur'));
 				var necromancien = itemName.search('Nécromancien') > 0;
 				var archaique = itemName.search('Archaique') > 0;
+				var cardinal = itemName.search('Cardinal') > 0;
 				var distingue = itemName.search('Distingué') > 0;
 				var fauve = itemName.search('Fauve') > 0;
 				var hypnotique = itemName.search('Hypnotique') > 0;
 
-				if (userWantsColoredZkKrewItems && (ours || chama || osseux || dracula || elastique || astral || sang || dur || necromancien || archaique || distingue || fauve || hypnotique)) {
+				if (userWantsColoredZkKrewItems && (ours || chama || osseux || dracula || elastique || astral || sang || dur || necromancien || archaique || cardinal || distingue || fauve || hypnotique)) {
 					ta.style.backgroundColor="#aa0000";
 					if (itemS[i].innerHTML.indexOf('Propriétaire') != -1) {
 						krew = true;
 					}
 				}
 
-				if (krew==true) {
+				if (krew === true && itemS[i].innerHTML.indexOf('Propriétaire') !== -1 && itemS[i].innerHTML.indexOf('Possesseur') === -1) {
 					ta.addEventListener('mousedown', function() {
 						var itemS = $('.item');
+						var max = itemS.length;
 						for (var i=0; i<itemS.length; i++) {
-							var ta = itemS[i].getElementsByTagName('table');
-							if (ta.style.backgroundColor=="rgb(170, 0, 0)" && ta.innerHTML.indexOf('Propriétaire')!=-1) {
+							var ta = itemS[i].getElementsByTagName('table')[0];
+							if (ta.style.backgroundColor === "rgb(170, 0, 0)" && ta.innerHTML.indexOf('Propriétaire') !== -1 && ta.innerHTML.indexOf('Possesseur') === -1) {
 								ta.getElementsByClassName('checkbox')[0].click();
 							}
 						}
 					}, false);
-				}
-				if (!krew) {
+				} else {
 					ta.addEventListener('mousedown', function() {
-						this.getElementsByClassName('checkbox')[0].click();
+						if(this.getElementsByClassName('checkbox').length > 0) {
+							this.getElementsByClassName('checkbox')[0].click();
+						}
 					}, false);
 				}
 				itemS[i].getElementsByTagName('td')[1].width="13%";
