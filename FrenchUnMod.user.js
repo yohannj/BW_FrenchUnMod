@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name		FrenchUnMod
 // @namespace	http://mega.szajb.us/juenizer/unmod/
-// @description	Advanced Bloodwars MODIFICATIONS
+// @description Advanced Bloodwars MODIFICATIONS
 // @include		http://r*.fr.bloodwars.net/*
 // @include		https://r*.fr.bloodwars.net/*
-// @version		2.0.0
+// @version		2.0.1
 // @grant		GM.getValue
 // @grant		GM.setValue
 // @grant		GM.setClipboard
-// @require		http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js
+// @require		http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
 // ==/UserScript==
 
 
@@ -275,8 +275,20 @@ var dspProfile = function() {
 
 function dspClan() {
 	var promises = [];
-	promises.push(GM.getValue(location.hostname + "RACE_"+user));
-	promises.push(GM.getValue(location.hostname + "SEXE_"+user));
+	var promiseForIdx = {};
+		var cells = document.getElementsByTagName("TABLE")[5].getElementsByTagName("TR");
+		var promiseAdded = 0;
+		for (var i = 0; i < cells.length; i++) {
+			user = cells[i].getElementsByTagName("TD")[1].innerHTML;
+			nba	= user.indexOf("\">", 0);
+			nbb	= user.indexOf("</a>", nba);
+			user = user.substring(nba+2, nbb);
+			
+			promises.push(GM.getValue(location.hostname + "RACE_"+user));
+			promises.push(GM.getValue(location.hostname + "SEXE_"+user));
+			promiseForIdx[i] = promiseAdded;
+			promiseAdded += 2;
+		}
 	
 	Promise.all(promises).then(function(values) {
 		var ME = document.getElementsByClassName("me")[0].innerHTML;
@@ -314,9 +326,10 @@ function dspClan() {
 
 			// insert la race
 			newCellRacePlayer	= TR[i].insertCell(5);
-			if (values[0]) {
-				newCellRacePlayer.innerHTML	= '<span style="text-transform: capitalize;">'+values[0].toLowerCase()+'</span>';
-				raceCalc(values[0].toLowerCase());
+			var race = values[promiseForIdx[i]];
+			if (race) {
+				newCellRacePlayer.innerHTML	= '<span style="text-transform: capitalize;">'+race.toLowerCase()+'</span>';
+				raceCalc(race.toLowerCase());
 			} else {
 				newCellRacePlayer.innerHTML	= 'N/C';
 			}
@@ -324,9 +337,10 @@ function dspClan() {
 
 			// insert le sexe
 			newCellSexePlayer	= TR[i].insertCell(1);
-			if(values[1]!= undefined){
-				newCellSexePlayer.innerHTML	= '<img src="http://amendil.free.fr/bloodwars/grease%20monkey/levelcalc/'+values[1]+'.png" />';
-				sexeCalc(values[1]);
+			var sex = values[promiseForIdx[i] + 1];
+			if(sex!= undefined){
+				newCellSexePlayer.innerHTML	= '<img src="http://amendil.free.fr/bloodwars/grease%20monkey/levelcalc/'+sex+'.png" />';
+				sexeCalc(sex);
 			} else {
 				newCellSexePlayer.innerHTML	= 'N/C';
 			}
@@ -978,8 +992,9 @@ var launchUnmod = function() {
 					var distingue = itemName.search('Distingué') > 0;
 					var fauve = itemName.search('Fauve') > 0;
 					var hypnotique = itemName.search('Hypnotique') > 0;
+					var astucieux = itemName.search('Astucie') > 0;
 
-					if (userWantsColoredZkKrewItems && (ours || chama || osseux || dracula || elastique || astral || sang || dur || necromancien || archaique || cardinal || distingue || fauve || hypnotique)) {
+					if (userWantsColoredZkKrewItems && (ours || chama || osseux || dracula || elastique || astral || sang || dur || necromancien || archaique || cardinal || distingue || fauve || hypnotique || astucieux)) {
 						ta.style.backgroundColor="#aa0000";
 						if (itemS[i].innerHTML.indexOf('Propriétaire') != -1) {
 							krew = true;
@@ -997,7 +1012,7 @@ var launchUnmod = function() {
 								}
 							}
 						}, false);
-					} else {
+					} else if(itemS[i].innerHTML.indexOf('Propriétaire') !== -1 && itemS[i].innerHTML.indexOf('Possesseur') === -1) {
 						ta.addEventListener('mousedown', function() {
 							if(this.getElementsByClassName('checkbox').length > 0) {
 								this.getElementsByClassName('checkbox')[0].click();
@@ -1440,8 +1455,25 @@ var launchUnmod = function() {
 		promises.push(GM.getValue(id+"UM_OP_ukryj2", true));
 		promises.push(GM.getValue(id+"UM_OP_klansort", true));
 		promises.push(GM.getValue(id+"UM_OP_levelcalc", true));
-		promises.push(GM.getValue(location.hostname + "RACE_"+user));
-		promises.push(GM.getValue(location.hostname + "SEXE_"+user));
+		
+		var promiseForIdx = {};
+		var cells = document.getElementsByTagName("tr");
+		var promiseAdded = 4;
+		for (var i = 0; i < cells.length; i++) {
+			cel_tst = cells[i].innerHTML;
+			tst = cel_tst.search(' de lancer la prochaine ');
+			if (tst!=-1) {
+				user	= cells[i].getElementsByTagName("td")[1].innerHTML;
+				nba	= user.indexOf("\">", 0);
+				nbb	= user.indexOf("</a>", nba);
+				user	= user.substring(nba+2, nbb);
+				
+				promises.push(GM.getValue(location.hostname + "RACE_"+user));
+				promises.push(GM.getValue(location.hostname + "SEXE_"+user));
+				promiseForIdx[i] = promiseAdded;
+				promiseAdded += 2;
+			}
+		}
 
 		Promise.all(promises).then(function(values) {
 			if (values[0]) {
@@ -1511,17 +1543,18 @@ var launchUnmod = function() {
 
 							expePlayer(cells[i]);
 
-
-							if(values[4]!= undefined){
-								race = '<span style="text-transform: capitalize;">'+values[4].toLowerCase()+'</span>';
-								raceCalc(values[4].toLowerCase());
+							var race = values[promiseForIdx[i]];
+							if(race!= undefined){
+								race = '<span style="text-transform: capitalize;">'+race.toLowerCase()+'</span>';
+								raceCalc(race.toLowerCase());
 							}else{
 								race = 'N/C';
 							}
 
-							if(values[5]!= undefined){
-								sexe = '<img src="http://amendil.free.fr/bloodwars/grease%20monkey/levelcalc/'+values[5]+'.png" />';
-								sexeCalc(values[5]);
+							var sex = values[promiseForIdx[i] + 1];
+							if(sex!= undefined){
+								sexe = '<img src="http://amendil.free.fr/bloodwars/grease%20monkey/levelcalc/'+sex+'.png" />';
+								sexeCalc(sex);
 							} else {
 								sexe = 'N/C';
 							}
@@ -1963,8 +1996,6 @@ var launchUnmod = function() {
 			}
 		});
 	}
-
-	console.log('hello');
 
 	if (a.substring(0,7)=="?a=rank" || a=="?a=rank" || a=="?a=rank&page=1" || a=="?a=rank&page=2") {
 		var promises = [];
@@ -2477,6 +2508,7 @@ var launchUnmod = function() {
 	}
 
 	if ("t"!=a[a.length-1] && "?a=profile&uid="==a.substring(0,15)) {
+		user = a.substring(15);
 		var promises = [];
 		promises.push(GM.getValue(id+"UM_OP_levelcalc", true));
 		promises.push(GM.getValue(id+"UM_OP_evoNotes", true));
