@@ -4,7 +4,7 @@
 // @description Advanced Bloodwars MODIFICATIONS
 // @include		http://r*.fr.bloodwars.net/*
 // @include		https://r*.fr.bloodwars.net/*
-// @version		2.0.1
+// @version		2.0.2
 // @grant		GM.getValue
 // @grant		GM.setValue
 // @grant		GM.setClipboard
@@ -902,30 +902,29 @@ var launchUnmod = function() {
 
 				sel = document.getElementById('newTab');
 				options = sel.getElementsByTagName('option');
-				options[0].innerHTML=values[1];
-				options[1].innerHTML=values[2];
-				options[2].innerHTML=values[3];
-				options[3].innerHTML=values[4];
-				options[4].innerHTML=values[5];
-				options[5].innerHTML=values[6];
-				options[6].innerHTML=values[7];
-				options[7].innerHTML=values[8];
-				options[8].innerHTML=values[9];
-				options[9].innerHTML=values[10];
+				options[10].innerHTML=values[1];
+				options[11].innerHTML=values[2];
+				options[12].innerHTML=values[3];
+				options[13].innerHTML=values[4];
+				options[14].innerHTML=values[5];
+				options[15].innerHTML=values[6];
+				options[16].innerHTML=values[7];
+				options[17].innerHTML=values[8];
+				options[18].innerHTML=values[9];
+				options[19].innerHTML=values[10];
 
 				el = document.getElementsByClassName('itemTab');
 				for (l=0; l<el.length; l++) {
-
-					el[l].innerHTML = el[l].innerHTML.replace("Étagère 10",values[11]);
-					el[l].innerHTML = el[l].innerHTML.replace("Étagère 9",values[12]);
-					el[l].innerHTML = el[l].innerHTML.replace("Étagère 8",values[13]);
-					el[l].innerHTML = el[l].innerHTML.replace("Étagère 7",values[14]);
-					el[l].innerHTML = el[l].innerHTML.replace("Étagère 6",values[15]);
-					el[l].innerHTML = el[l].innerHTML.replace("Étagère 5",values[16]);
-					el[l].innerHTML = el[l].innerHTML.replace("Étagère 4",values[17]);
-					el[l].innerHTML = el[l].innerHTML.replace("Étagère 3",values[18]);
-					el[l].innerHTML = el[l].innerHTML.replace("Étagère 2",values[19]);
-					el[l].innerHTML = el[l].innerHTML.replace("Étagère 1",values[20]);
+          el[l].innerHTML = el[l].innerHTML.replace('Étagère 10<',values[11] + '<');
+					el[l].innerHTML = el[l].innerHTML.replace('Étagère 9<',values[12] + '<');
+					el[l].innerHTML = el[l].innerHTML.replace('Étagère 8<',values[13] + '<');
+					el[l].innerHTML = el[l].innerHTML.replace('Étagère 7<',values[14] + '<');
+					el[l].innerHTML = el[l].innerHTML.replace('Étagère 6<',values[15] + '<');
+					el[l].innerHTML = el[l].innerHTML.replace('Étagère 5<',values[16] + '<');
+					el[l].innerHTML = el[l].innerHTML.replace('Étagère 4<',values[17] + '<');
+					el[l].innerHTML = el[l].innerHTML.replace('Étagère 3<',values[18] + '<');
+					el[l].innerHTML = el[l].innerHTML.replace('Étagère 2<',values[19] + '<');
+					el[l].innerHTML = el[l].innerHTML.replace('Étagère 1<',values[20] + '<');
 					}
 			}
 
