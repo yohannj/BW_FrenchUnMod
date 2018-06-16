@@ -4,13 +4,12 @@
 // @description Advanced Bloodwars MODIFICATIONS
 // @include		http://r*.fr.bloodwars.net/*
 // @include		https://r*.fr.bloodwars.net/*
-// @version		2.0.2
+// @version		3.0.0
 // @grant		GM.getValue
 // @grant		GM.setValue
 // @grant		GM.setClipboard
 // @require		http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
 // ==/UserScript==
-
 
 // made by juen @ o2 . pl
 // zapraszam: http://nakoz.org, http://szajb.us, http://cdlabel.info
@@ -481,27 +480,13 @@ if (a=="?a=settings") {
 	promises.push(GM.getValue(id+"UM_OP_shoutboxclan", false));
 	promises.push(GM.getValue(id+"UM_OP_signature", true));
 	promises.push(GM.getValue(id+"UM_OP_showHideArenaStats", false));
-	promises.push(GM.getValue(id+"UM_OP_talismanzk", true));
 	promises.push(GM.getValue(id+"UM_OP_equipnopopup", true));
-	promises.push(GM.getValue(id+"UM_OP_fastzk", true));
-	promises.push(GM.getValue(id+"UM_OP_zkkrew", true));
 	promises.push(GM.getValue(id+"UM_OP_sellLowItem", true));
 	promises.push(GM.getValue(id+'UM_zkclean','2000'));
 	promises.push(GM.getValue(id+"UM_OP_menuList", true));
 	promises.push(GM.getValue(id+"UM_OP_shop1", true));
 	promises.push(GM.getValue(id+"UM_OP_auction", true));
 	promises.push(GM.getValue(id+"UM_OP_copyAuction", true));
-	promises.push(GM.getValue(id+"UM_OP_polki", false));
-	promises.push(GM.getValue(id+"UM_OP_polka10", "Étagère 10"));
-	promises.push(GM.getValue(id+"UM_OP_polka9", "Étagère 9"));
-	promises.push(GM.getValue(id+"UM_OP_polka8", "Étagère 8"));
-	promises.push(GM.getValue(id+"UM_OP_polka7", "Étagère 7"));
-	promises.push(GM.getValue(id+"UM_OP_polka6", "Étagère 6"));
-	promises.push(GM.getValue(id+"UM_OP_polka5", "Étagère 5"));
-	promises.push(GM.getValue(id+"UM_OP_polka4", "Étagère 4"));
-	promises.push(GM.getValue(id+"UM_OP_polka3", "Étagère 3"));
-	promises.push(GM.getValue(id+"UM_OP_polka2", "Étagère 2"));
-	promises.push(GM.getValue(id+"UM_OP_polka1", "Étagère 1"));
 	promises.push(GM.getValue(id+"UM_OP_invMsg", true));
 	promises.push(GM.getValue(id+"UM_OP_statBuilding", true));
 	promises.push(GM.getValue(id+"UM_OP_notesEverywhere", true));
@@ -603,89 +588,59 @@ if (a=="?a=settings") {
 
 		opcje+="<tr><td><br />Item<hr/></td></tr>";
 
-		/*opcje+='<tr><td><input type="checkbox"';
-		if (values[16]) opcje+=' checked="checked"';
-		opcje+=' id="UM_OP_talismanzk"> possibilité de changer de talisman depuis la page de l`armurerie</td></tr>';*/
-
 		opcje+='<tr><td><input type="checkbox"';
-		if (values[17]) opcje+=' checked="checked"';
+		if (values[16]) opcje+=' checked="checked"';
 		opcje+=' id="UM_OP_equipnopopup"> enlever les popup lors des changements de stuff et de talismans</td></tr>';
 
 		opcje+='<tr><td><input type="checkbox"';
-		if (values[18]) opcje+=' checked="checked"';
-		opcje+=' id="UM_OP_fastzk"> clic rapide sur les items de l`armurerie</td></tr>';
+		if (values[17]) opcje+=' checked="checked"';
+		opcje+=' id="UM_OP_sellLowItem"> (cliquer sur EFFACER, à côté d`INVERSER) vendre les items NON Epique de l`étagère 1 valant moins de (LOL): <input type="text" style="width:50px;" id="UM_zkclean" value="'+values[18]+'"></td></tr>';
 
 		opcje+='<tr><td><input type="checkbox"';
 		if (values[19]) opcje+=' checked="checked"';
-		opcje+=' id="UM_OP_zkkrew"> mettre en évidence le stuff sang en ac (nécessaire d`activer le clic rapide sur les items de l`armurerie)</td></tr>';
-
-		opcje+='<tr><td><input type="checkbox"';
-		if (values[20]) opcje+=' checked="checked"';
-		opcje+=' id="UM_OP_sellLowItem"> (cliquer sur EFFACER, à côté d`INVERSER) vendre les items NON Epique de l`étagère 1 valant moins de (LOL): <input type="text" style="width:50px;" id="UM_zkclean" value="'+values[21]+'"></td></tr>';
-
-		opcje+='<tr><td><input type="checkbox"';
-		if (values[22]) opcje+=' checked="checked"';
 		opcje+=' id="UM_OP_menuList"> ajout d\'un bouton à côté des shoutbox pour changer de stuff depuis n\'importe quel page</td></tr>';
 
 		opcje+='<tr><td><input type="checkbox"';
-		if (values[23]) opcje+=' checked="checked"';
+		if (values[20]) opcje+=' checked="checked"';
 		opcje+=' id="UM_OP_shop1"> affiche les propriétés des ouu lors de leurs achats dans le magasin</td></tr>';
 
 		opcje+='<tr><td><input type="checkbox"';
-		if (values[24]) opcje+=' checked="checked"';
+		if (values[21]) opcje+=' checked="checked"';
 		opcje+=' id="UM_OP_auction"> indique l\'heure de fin de la prochaine enchère en haut de l\'écran, améliore l\'affiche des légendaires et des prix des ferrailles</td></tr>';
 
 		opcje+='<tr><td><input type="checkbox"';
-		if (values[25]) opcje+=' checked="checked"';
+		if (values[22]) opcje+=' checked="checked"';
 		opcje+=' id="UM_OP_copyAuction"> ajout de cases et de boutons "COPIER la sélection". La sélection pourra ensulte être collée dans un format plus lisible que sans cette option</td></tr>';
-
-
-		opcje+='<tr><td><input type="checkbox"';
-		if (values[26]) opcje+=' checked="checked"';
-		opcje+=' id="UM_OP_polki"> ';
-		opcje+='nom des étagères: <br><br>';
-		opcje+='10:<input type="text" style="width: 100px;" id="UM_OP_polka10" value="'+values[27]+'">';
-		opcje+='&nbsp;9: <input type="text" style="width: 100px;" id="UM_OP_polka9" value="'+values[28]+'">';
-		opcje+='&nbsp;8: <input type="text" style="width: 100px;" id="UM_OP_polka8" value="'+values[29]+'">';
-		opcje+='&nbsp;7: <input type="text" style="width: 100px;" id="UM_OP_polka7" value="'+values[30]+'">';
-		opcje+='&nbsp;6: <input type="text" style="width: 100px;" id="UM_OP_polka6" value="'+values[31]+'">';
-		opcje+='<br>&nbsp;5: <input type="text" style="width: 100px;" id="UM_OP_polka5" value="'+values[32]+'">';
-		opcje+='&nbsp;4: <input type="text" style="width: 100px;" id="UM_OP_polka4" value="'+values[33]+'">';
-		opcje+='&nbsp;3: <input type="text" style="width: 100px;" id="UM_OP_polka3" value="'+values[34]+'">';
-		opcje+='&nbsp;2: <input type="text" style="width: 100px;" id="UM_OP_polka2" value="'+values[35]+'">';
-		opcje+='&nbsp;1: <input type="text" style="width: 100px;" id="UM_OP_polka1" value="'+values[36]+'">';
-		opcje+='</td></tr>';
-
 
 		opcje+="<tr><td><br />Autre<hr/></td></tr>";
 
 
 		opcje+='<tr><td><input type="checkbox"';
-		if (values[37]) opcje+=' checked="checked"';
+		if (values[23]) opcje+=' checked="checked"';
 		opcje+=' id="UM_OP_invMsg"> permet d\'inverser les messages sélectionnés selon leur type</td></tr>';
 
 		opcje+='<tr><td><input type="checkbox"';
-		if (values[38]) opcje+=' checked="checked"';
+		if (values[24]) opcje+=' checked="checked"';
 		opcje+=' id="UM_OP_statBuilding"> affiche l\'heure de fin de la prochaine construction en haut de l\'écran</td></tr>';
 
 		opcje+='<tr><td><input type="checkbox"';
-		if (values[39]) opcje+=' checked="checked"';
+		if (values[25]) opcje+=' checked="checked"';
 		opcje+=' id="UM_OP_notesEverywhere"> afficher un bouton en haut à gauche sur toutes les pages pour voir des notes</td></tr>';
 
 		opcje+='<tr><td><input type="checkbox"';
-		if (values[40]) opcje+=' checked="checked"';
+		if (values[26]) opcje+=' checked="checked"';
 		opcje+=' id="UM_OP_infoTasks"> ajoute des informations sur chaque mission en passant la souris sur l\'intitulé</td></tr>';
 
 		opcje+='<tr><td><input type="checkbox"';
-		if (values[41]) opcje+=' checked="checked"';
+		if (values[27]) opcje+=' checked="checked"';
 		opcje+=' id="UM_OP_statsCost"> indique le coût total de l\'entraînement dans la page Entraînement</td></tr>';
 
 		//opcje+='<tr><td><input type="checkbox"';
-		//if (values[42]) opcje+=' checked="checked"';
-		//opcje+=' id="UM_OP_donesound"> jouer un son lorsqu`une quête/attaque est finie <input type="text" id="UM_urlsound" value="'+values[43]+'"></td></tr>';
+		//if (values[28]) opcje+=' checked="checked"';
+		//opcje+=' id="UM_OP_donesound"> jouer un son lorsqu`une quête/attaque est finie <input type="text" id="UM_urlsound" value="'+values[29]+'"></td></tr>';
 
 		opcje+='<tr><td><input type="checkbox"';
-		if (values[44]) opcje+=' checked="checked"';
+		if (values[30]) opcje+=' checked="checked"';
 		opcje+=' id="UM_OP_alarm"> alarme à: ';
 		opcje+='<select id="UM_OP_alarm_h"><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option></select>';
 		opcje+='&nbsp;h&nbsp;<select id="UM_OP_alarm_m">';
@@ -694,7 +649,7 @@ if (a=="?a=settings") {
 		opcje+='</td></tr>';
 
 		opcje+='<tr><td><input type="checkbox"';
-		if (values[45]) opcje+=' checked="checked"';
+		if (values[31]) opcje+=' checked="checked"';
 		opcje+=' id="UM_OP_youtube"> affiche un lecteur sous les liens youtube de la shoutbox</td></tr>';
 
 
@@ -707,22 +662,16 @@ if (a=="?a=settings") {
 		opcje+='- préremplissage des arcanes et évolutions en Expédition et Roi de la Colline<br>';
 		opcje+='- inverser la sélection des messages selon leur type<br>';
 		opcje+='- enlever les popup lors des changements de stuff et de talismans<br>';
-		opcje+='- possibilité de changer de talisman depuis la page de l`armurerie<br>';
 		opcje+='- les objets Epique ne sont plus vendu par le bouton "EFFACER" de l\'armurerie<br>';
 		opcje+='- ajout de cases pour copier des enchères avec une belle mise en forme<br>';
 		opcje+='- possibilité de cacher les statistiques en arène sur le profil des joueurs<br>';
-		opcje+='- <s>ajout d\'un bouton "inverser le marquage" pour gérer les invitations d\'expéditions et rdc</s><br>';
 		opcje+='- ajout de notes visibles sur toutes les pages<br>';
-		opcje+='- ajout d`un message sur la page de quête indiquant les sondages et infos importantes<br>';
 		opcje+='- ajout du script levelcalc<br>';
 		opcje+='- statistiques à la fin des combats; ceux qui ont lancé le plus d`attaque ou fais le plus de critique son encadré.<br>';
-		opcje+='- le lien du chat instantané est modifié pour choisir son pseudo plutôt que de prendre automatiquement le pseudo du jeu<br>';
 		opcje+='- sur le profil d`un joueur, «ATTAQUER» est barré si vous avez déjà attaqué cette personne deux fois. Si vous avez déjà attaqué cette personne une fois il est écrit «ATTAQUER UNE SECONDE FOIS»<br>';
 		opcje+='- sur les pages de classements où les joueurs sont affichés par ordre de disponibilité d`attaque, les personnes disponibles mais que vous avez déjà attaqué aujourd`hui voient leurs icones devenir transparente (faible transparence si attaqué une fois, forte transparence si attaqué deux fois)<br>';
 		opcje+='- informations pour réussir les missions<br>';
 		opcje+='- possibilité de cacher les descriptions publique et privée de son clan<br>';
-		opcje+='- <s>changement rapide des stuff enregistrés (menu déroulant à côté des shoutbox)</s><br>';
-		opcje+='- possibilité de renommer les étagères<br>';
 		opcje+='- affichage complet des informations des ouu dans le magasin<br>';
 		opcje+='- les dates en haut de l`écran sont désormais affichée dans l`armurerie et la vue de la cité<br>';
 		opcje+='- conversion des liens youtube dans la shoutbox vers un player<br>';
@@ -739,23 +688,21 @@ if (a=="?a=settings") {
 		opcje+='- tri du classement selon les possibilités d`attaques<br>';
 		opcje+='- dans les enchères, mets en évidence les objets de qualité légendaire<br>';
 		opcje+='- sur le classement/la vue sur la cité, il y a un E à côté du pseudo si le joueur vous rapporte au moins 1 PE (affiché même si vous n`êtes pas acte 3)<br>';
-		opcje+='- option pour choisir l`adresse URL du signal sonore<br>';
 		opcje+='- sur les pages de rdc, expé et embuscade, s`il y a une action en cours, le nom de l`onglet affiche le temps restant avant la fin de l`action<br>';
 		opcje+='- ajout du cout total des stats sur la page d`entrainement<br>';
 		opcje+='- ajout d`une option pour que le chat clanique soit automatiquement ouvert<br>';
 		opcje+='- votre choix d`options de ce script est propre à chaque serveur<br>';
 		opcje+='- ajout d`une note sur le profil de chaque joueur!<br>';
-		opcje+='- ajout d`une option pour jouer un son lorsqu`une quête se termine (si l`onglet de la page de quête est ouvert)<br>';
 		opcje+='</td></tr>';
 		opcje+='</table></center><BR><BR>';
 		div.innerHTML+=opcje;
-		wyb = values[46];
+		wyb = values[32];
 		if (parseInt(wyb)>=12) wyb-=12; else wyb=parseInt(wyb)+12;
 		document.getElementById("UM_OP_alarm_h").options[wyb].selected=true;
-		wyb = values[47];
+		wyb = values[33];
 		document.getElementById("UM_OP_alarm_m").options[wyb].selected=true;
 
-		document.getElementById('content-mid').style.minHeight="2175px"; // Height of settings
+		document.getElementById('content-mid').style.minHeight="1625px"; // Height of settings
 		document.getElementById('UM_OP_notesEverywhere').addEventListener('click', function() {GM.setValue(id+"UM_OP_notesEverywhere",this.checked);}, false);
 		document.getElementById('UM_OP_youtube').addEventListener('click', function() {GM.setValue(id+"UM_OP_youtube",this.checked);}, false);
 		document.getElementById('UM_OP_signature').addEventListener('click', function() {GM.setValue(id+"UM_OP_signature",this.checked);}, false);
@@ -776,16 +723,12 @@ if (a=="?a=settings") {
 		document.getElementById('UM_OP_evoNotes').addEventListener('click', function() {GM.setValue(id+"UM_OP_evoNotes",this.checked);}, false);
 		document.getElementById('UM_OP_ukryj').addEventListener('click', function() {GM.setValue(id+"UM_OP_ukryj",this.checked);}, false);
 		document.getElementById('UM_OP_ukryj2').addEventListener('click', function() {GM.setValue(id+"UM_OP_ukryj2",this.checked);}, false);
-		document.getElementById('UM_OP_zkkrew').addEventListener('click', function() {GM.setValue(id+"UM_OP_zkkrew",this.checked);}, false);
 		document.getElementById('UM_OP_mysort').addEventListener('click', function() {GM.setValue(id+"UM_OP_mysort",this.checked);}, false);
 		document.getElementById('UM_OP_mysort1').addEventListener('click', function() {GM.setValue(id+"UM_OP_mysort1",this.checked);}, false);
 		document.getElementById('UM_OP_mysort2').addEventListener('click', function() {GM.setValue(id+"UM_OP_mysort2",this.checked);}, false);
 		document.getElementById('UM_OP_mysort3').addEventListener('click', function() {GM.setValue(id+"UM_OP_mysort3",this.checked);}, false);
-		//document.getElementById('UM_OP_talismanzk').addEventListener('click', function() {GM.setValue(id+"UM_OP_talismanzk",this.checked);}, false);
 		document.getElementById('UM_OP_equipnopopup').addEventListener('click', function() {GM.setValue(id+"UM_OP_equipnopopup",this.checked);}, false);
-		document.getElementById('UM_OP_fastzk').addEventListener('click', function() {GM.setValue(id+"UM_OP_fastzk",this.checked);}, false);
 		document.getElementById('UM_OP_alarm').addEventListener('click', function() {GM.setValue(id+"UM_OP_alarm",this.checked);}, false);
-		document.getElementById('UM_OP_polki').addEventListener('click', function() {GM.setValue(id+"UM_OP_polki",this.checked);}, false);
 		document.getElementById('UM_OP_klansort').addEventListener('click', function() {GM.setValue(id+"UM_OP_klansort",this.checked);}, false);
 		document.getElementById('UM_OP_showHideArenaStats').addEventListener('click', function() {GM.setValue(id+"UM_OP_showHideArenaStats",this.checked);}, false);
 		document.getElementById('UM_OP_copyAuction').addEventListener('click', function() {GM.setValue(id+"UM_OP_copyAuction",this.checked);}, false);
@@ -793,16 +736,6 @@ if (a=="?a=settings") {
 		document.getElementById('UM_OP_alarm_h').addEventListener('change', function() {GM.setValue(id+"UM_OP_alarm_h",this.value);}, false);
 		document.getElementById('UM_OP_alarm_m').addEventListener('change', function() {GM.setValue(id+"UM_OP_alarm_m",this.value);}, false);
 		//document.getElementById('UM_urlsound').addEventListener('change', function() {GM.setValue(id+"UM_urlsound",this.value);}, false);
-		document.getElementById('UM_OP_polka1').addEventListener('keyup', function() {GM.setValue(id+"UM_OP_polka1",this.value);}, false);
-		document.getElementById('UM_OP_polka2').addEventListener('keyup', function() {GM.setValue(id+"UM_OP_polka2",this.value);}, false);
-		document.getElementById('UM_OP_polka3').addEventListener('keyup', function() {GM.setValue(id+"UM_OP_polka3",this.value);}, false);
-		document.getElementById('UM_OP_polka4').addEventListener('keyup', function() {GM.setValue(id+"UM_OP_polka4",this.value);}, false);
-		document.getElementById('UM_OP_polka5').addEventListener('keyup', function() {GM.setValue(id+"UM_OP_polka5",this.value);}, false);
-		document.getElementById('UM_OP_polka6').addEventListener('keyup', function() {GM.setValue(id+"UM_OP_polka6",this.value);}, false);
-		document.getElementById('UM_OP_polka7').addEventListener('keyup', function() {GM.setValue(id+"UM_OP_polka7",this.value);}, false);
-		document.getElementById('UM_OP_polka8').addEventListener('keyup', function() {GM.setValue(id+"UM_OP_polka8",this.value);}, false);
-		document.getElementById('UM_OP_polka9').addEventListener('keyup', function() {GM.setValue(id+"UM_OP_polka9",this.value);}, false);
-		document.getElementById('UM_OP_polka10').addEventListener('keyup', function() {GM.setValue(id+"UM_OP_polka10",this.value);}, false);
 		//document.getElementById('UM_urlsound').addEventListener('keyup', function() {GM.setValue(id+"UM_urlsound",this.value);}, false);
 		document.getElementById('UM_zkclean').addEventListener('keyup', function() {GM.setValue(id+"UM_zkclean",this.value);}, false);
 	});
@@ -842,93 +775,23 @@ var launchUnmod = function() {
 	scriptCode.length = 0;
 	document.getElementsByTagName('head')[0].appendChild(script);
 
-	test = document.getElementsByClassName('menulink');
-	for (t = 0; t < test.length; t++) {
-		if (test[t].innerHTML=='Chat instantané') { test[t].href='http://webchat.quakenet.org/?channels=bloodwars-fr'; break; }
-	}
-
 	if(a.substring(0,11)=="?a=talizman") {
-		var promises = [];
-		promises.push(GM.getValue(id+"UM_OP_talismanzk", true));
-		promises.push(GM.getValue(id+"UM_OP_equipnopopup", true));
-
-		Promise.all(promises).then(function(values) {
-			if(values[0]) {
-				var talismanSet = $('.equip')[0].outerHTML;
-
-				if(values[1]) {
-					var talismanRegex = /if \(confirm\('Êtes vous certain de vouloir équiper l`ensemble de talismans numéro \d+ \([^\)]+\)\?'\)\) /g;
-					$('.equip')[0].outerHTML = talismanSet.replace(talismanRegex, '');
-				}
-			}
+		GM.getValue(id+"UM_OP_equipnopopup", true).then(function(b) {
+      if(b) {
+        var talismanRegex = /if \(confirm\('Êtes vous certain de vouloir équiper l`ensemble de talismans numéro \d+ \([^\)]+\)\?'\)\) /g;
+        $('.equip')[0].outerHTML = $('.equip')[0].outerHTML.replace(talismanRegex, '');
+      }
 		});
 	}
 
 	if (a.substring(0,8)=="?a=equip") {
 		var promises = [];
-		promises.push(GM.getValue(id+"UM_OP_polki", false));
-		promises.push(GM.getValue(id+"UM_OP_polka10", "10"));
-		promises.push(GM.getValue(id+"UM_OP_polka9", "9"));
-		promises.push(GM.getValue(id+"UM_OP_polka8", "8"));
-		promises.push(GM.getValue(id+"UM_OP_polka7", "7"));
-		promises.push(GM.getValue(id+"UM_OP_polka6", "6"));
-		promises.push(GM.getValue(id+"UM_OP_polka5", "5"));
-		promises.push(GM.getValue(id+"UM_OP_polka4", "4"));
-		promises.push(GM.getValue(id+"UM_OP_polka3", "3"));
-		promises.push(GM.getValue(id+"UM_OP_polka2", "2"));
-		promises.push(GM.getValue(id+"UM_OP_polka1", "1"));
-		promises.push(GM.getValue(id+"UM_OP_polka10", "Étagère 10"));
-		promises.push(GM.getValue(id+"UM_OP_polka9", "Étagère 9"));
-		promises.push(GM.getValue(id+"UM_OP_polka8", "Étagère 8"));
-		promises.push(GM.getValue(id+"UM_OP_polka7", "Étagère 7"));
-		promises.push(GM.getValue(id+"UM_OP_polka6", "Étagère 6"));
-		promises.push(GM.getValue(id+"UM_OP_polka5", "Étagère 5"));
-		promises.push(GM.getValue(id+"UM_OP_polka4", "Étagère 4"));
-		promises.push(GM.getValue(id+"UM_OP_polka3", "Étagère 3"));
-		promises.push(GM.getValue(id+"UM_OP_polka2", "Étagère 2"));
-		promises.push(GM.getValue(id+"UM_OP_polka1", "Étagère 1"));
 		promises.push(GM.getValue(id+"UM_OP_equipnopopup", true));
-		promises.push(GM.getValue(id+"UM_OP_talismanzk", true));
-		promises.push(GM.getValue(id+'UM_talismanSet',null));
-		promises.push(GM.getValue(id+"UM_OP_equipnopopup", true));
-		promises.push(GM.getValue(id+"UM_OP_fastzk", true));
-		promises.push(GM.getValue(id+"UM_OP_zkkrew", true));
 		promises.push(GM.getValue(id+"UM_OP_sellLowItem", true));
 		promises.push(GM.getValue(id+'UM_zkclean','2000'));
 
 		Promise.all(promises).then(function(values) {
 			if (values[0]) {
-				// mod wlasne nazwy polek
-
-				sel = document.getElementById('newTab');
-				options = sel.getElementsByTagName('option');
-				options[10].innerHTML=values[1];
-				options[11].innerHTML=values[2];
-				options[12].innerHTML=values[3];
-				options[13].innerHTML=values[4];
-				options[14].innerHTML=values[5];
-				options[15].innerHTML=values[6];
-				options[16].innerHTML=values[7];
-				options[17].innerHTML=values[8];
-				options[18].innerHTML=values[9];
-				options[19].innerHTML=values[10];
-
-				el = document.getElementsByClassName('itemTab');
-				for (l=0; l<el.length; l++) {
-          el[l].innerHTML = el[l].innerHTML.replace('Étagère 10<',values[11] + '<');
-					el[l].innerHTML = el[l].innerHTML.replace('Étagère 9<',values[12] + '<');
-					el[l].innerHTML = el[l].innerHTML.replace('Étagère 8<',values[13] + '<');
-					el[l].innerHTML = el[l].innerHTML.replace('Étagère 7<',values[14] + '<');
-					el[l].innerHTML = el[l].innerHTML.replace('Étagère 6<',values[15] + '<');
-					el[l].innerHTML = el[l].innerHTML.replace('Étagère 5<',values[16] + '<');
-					el[l].innerHTML = el[l].innerHTML.replace('Étagère 4<',values[17] + '<');
-					el[l].innerHTML = el[l].innerHTML.replace('Étagère 3<',values[18] + '<');
-					el[l].innerHTML = el[l].innerHTML.replace('Étagère 2<',values[19] + '<');
-					el[l].innerHTML = el[l].innerHTML.replace('Étagère 1<',values[20] + '<');
-					}
-			}
-
-			if (values[21]) {
 				var equipmentRegex = /if \(confirm\('Êtes-vous sûr de vouloir equiper cet ensemble d`objets\? \([^\)]+\)'\)\) /g;
 				var elements = $('div[onclick]');
 				for(var i = 0, end = elements.length; i < end; ++i) {
@@ -938,99 +801,10 @@ var launchUnmod = function() {
 				}
 			}
 
-			/*if (values[22]) {
-				var talismanSet = values[23];
-				if(talismanSet) {
-					if(values[24]) {
-						var talismanRegex = /if \(confirm\('Êtes vous certain de vouloir équiper l`ensemble de talismans numéro \d+ \([^\)]+\)\?'\)\) /g;
-						talismanSet = talismanSet.replace(talismanRegex, '');
-					}
-					var equipElements = $('.equip');
-					var itemsSet;
-					for(var i = 0, end = equipElements.length; i < end; ++i) {
-					 if(equipElements[i].firstElementChild && equipElements[i].firstElementChild.firstChild && equipElements[i].firstElementChild.firstChild.data === ' LES ENSEMBLES DÉFINIS DES OBJETS ') {
-							itemsSet = equipElements[i];
-						}
-					}
-					var akeyRegex = /akey=.{5}/g;
-					var akey = itemsSet.innerHTML.match(akeyRegex)[0];
-					var talismanSetHtml = talismanSet.replace(akeyRegex,akey);
-					$(talismanSetHtml).insertAfter($(itemsSet));
-				}
-			}*/
-
-			if (values[25]) {
-				// mod fast zk
-
-				unsafeWindow.clk_stock = function(event, stock) {
-				}
-				unsafeWindow.clk_zk = function(event, stock) {
-				}
-				unsafeWindow.clk_equip = function(event, stock) {
-				}
-
-				//var itemS = $('#hc_carm1').find('.item');
-				var itemS = $('.item');
-				for (var i = 0; i < itemS.length; i++) {
-					ta = itemS[i].getElementsByTagName('table')[0];
-					var itemName = /CAPTION,'(.*?)'\);"/.exec(ta.innerHTML)[1];
-					krew = false;
-
-					var userWantsColoredZkKrewItems = values[26];
-					var ours = itemName.search('Ours') > 0;
-					var chama = itemName.search('Chamanis') > 0;
-					var osseux = itemName.search('Osseu') > 0;
-					var dracula = itemName.search('Dracula') > 0;
-					var elastique = itemName.search('Élastique') > 0;
-					var astral = itemName.search('Astral') > 0;
-					var sang = itemName.search('Du Sang') > 0;
-					var dur = itemName.search('Dur')>0 && (itemName.search('Peau Dur') < 0 || itemName.search('Peau Dur') > itemName.search('Dur'));
-					var necromancien = itemName.search('Nécromancien') > 0;
-					var archaique = itemName.search('Archaique') > 0;
-					var cardinal = itemName.search('Cardinal') > 0;
-					var distingue = itemName.search('Distingué') > 0;
-					var fauve = itemName.search('Fauve') > 0;
-					var hypnotique = itemName.search('Hypnotique') > 0;
-					var astucieux = itemName.search('Astucie') > 0;
-
-					if (userWantsColoredZkKrewItems && (ours || chama || osseux || dracula || elastique || astral || sang || dur || necromancien || archaique || cardinal || distingue || fauve || hypnotique || astucieux)) {
-						ta.style.backgroundColor="#aa0000";
-						if (itemS[i].innerHTML.indexOf('Propriétaire') != -1) {
-							krew = true;
-						}
-					}
-
-					if (krew === true && itemS[i].innerHTML.indexOf('Propriétaire') !== -1 && itemS[i].innerHTML.indexOf('Possesseur') === -1) {
-						ta.addEventListener('mousedown', function() {
-							var itemS = $('.item');
-							var max = itemS.length;
-							for (var i=0; i<itemS.length; i++) {
-								var ta = itemS[i].getElementsByTagName('table')[0];
-								if (ta.style.backgroundColor === "rgb(170, 0, 0)" && ta.innerHTML.indexOf('Propriétaire') !== -1 && ta.innerHTML.indexOf('Possesseur') === -1) {
-									ta.getElementsByClassName('checkbox')[0].click();
-								}
-							}
-						}, false);
-					} else if(itemS[i].innerHTML.indexOf('Propriétaire') !== -1 && itemS[i].innerHTML.indexOf('Possesseur') === -1) {
-						ta.addEventListener('mousedown', function() {
-							if(this.getElementsByClassName('checkbox').length > 0) {
-								this.getElementsByClassName('checkbox')[0].click();
-							}
-						}, false);
-					}
-					itemS[i].getElementsByTagName('td')[1].width="13%";
-				}
-
-				var itemS = document.getElementsByClassName('checkbox');
-				for (var i=0; i<itemS.length; i++) {
-					itemS[i].style.display="none";
-				}
-			}
-
-
-			if (values[27] && document.getElementById('hc_c0')) {
+			console.log(document.getElementById('armoryTabContainer_0'));
+			if (values[1] && document.getElementById('armoryTabContainer_0')) {
 				// mod clean-zk
-				polka = document.getElementById('hc_c0');
+				polka = document.getElementById('armoryTabContainer_0');
 				input = polka.getElementsByTagName('input')[0];
 				input.value="INVERSER";
 				input.style.width="90px";
@@ -1045,13 +819,13 @@ var launchUnmod = function() {
 				if (input.nextSibling) input.parentNode.insertBefore(nowy, input.nextSibling); else input.parentNode.appendChild(nowy);
 
 				document.getElementById('nowy').addEventListener('click', function() {
-					polka = document.getElementById('hc_c0');
+					polka = document.getElementById('armoryTabContainer_0');
 					items = polka.getElementsByClassName('item');
 
 					for (i=0; i<items.length; i++) {
 						if(items[i].getElementsByTagName('TD')[1].innerHTML.indexOf('Epique') == -1) {
 							koszt = parseInt((/((?:\d+\s*)+)LOL/.exec(items[i].innerHTML))[1].replace(/\s/g, ""));
-							if (koszt < values[28] && koszt > 49) {
+							if (koszt < values[2] && koszt > 49) {
 								sellItem = items[i].getElementsByTagName('TD')[1].getElementsByTagName('INPUT')[0];
 								sellItem.click();
 							}
@@ -1861,12 +1635,12 @@ var launchUnmod = function() {
 		GM.getValue(id+"UM_OP_copyAuction", true).then(function(value) {
 			if(value) {
 				if (a.search('addfav=')>0) {
-					table = document.getElementsByTagName('TABLE')[6];
+					table = document.getElementsByTagName('TABLE')[7];
 				} else {
-					table = document.getElementsByTagName('TABLE')[5];
+					table = document.getElementsByTagName('TABLE')[6];
 				}
 				if (document.getElementsByTagName('TABLE')[3].innerHTML.search('Ton offre ')>0) {
-					table = document.getElementsByTagName('TABLE')[6];
+					table = document.getElementsByTagName('TABLE')[7];
 				}
 
 				TRs = table.getElementsByTagName('TR');
@@ -1965,16 +1739,19 @@ var launchUnmod = function() {
 					correction++;
 				}
 				if (a.search('addfav=')>0)
-					table = document.getElementsByTagName('TABLE')[6];
+					table = document.getElementsByTagName('TABLE')[7];
 				else
-					table = document.getElementsByTagName('TABLE')[5];
+					table = document.getElementsByTagName('TABLE')[6];
 
 				if (document.getElementsByTagName('TABLE')[3].innerHTML.search('Ton offre ')>0) {
-					table = document.getElementsByTagName('TABLE')[6];
+					table = document.getElementsByTagName('TABLE')[7];
 				}
+        
 				tr = table.getElementsByTagName('TR');
+        console.log(tr);
 				for (i=1; i<tr.length; i++) {
 					td = tr[i].getElementsByTagName('TD');
+          console.log(td);
 					sztuk = parseInt(td[1+correction].innerHTML.substring(td[1+correction].innerHTML.search(':')+1).replace('</span>','').replace(/ /g,''));
 					oferta = parseInt(td[3+correction].innerHTML.replace(/ /g,''));
 
@@ -2511,6 +2288,7 @@ var launchUnmod = function() {
 		var promises = [];
 		promises.push(GM.getValue(id+"UM_OP_levelcalc", true));
 		promises.push(GM.getValue(id+"UM_OP_evoNotes", true));
+    promises.push(GM.getValue(id+"UM_notka"+user, ""));
 		promises.push(GM.getValue(id+'UM_1_'+user, "A:B"));
 		promises.push(GM.getValue(id+'UM_2_'+user, "C:D"));
 		promises.push(GM.getValue(id+"UM_OP_showHideArenaStats", false));
@@ -2525,14 +2303,14 @@ var launchUnmod = function() {
 				divs = document.getElementsByTagName('div');
 				i=29;
 				if(divs[i].innerHTML.length<400) i++;
-				divs[i].innerHTML+='<fieldset class="profile" style="text-align: center; height: 150px;"><legend class="profile">NOTES</legend><textarea id="UM_notka'+user+'" style="width: 100%; height: 96%;">'+GM.getValue(id+"UM_notka"+user, "")+'</textarea></fieldset>';
+				divs[i].innerHTML+='<fieldset class="profile" style="text-align: center; height: 150px;"><legend class="profile">NOTES</legend><textarea id="UM_notka'+user+'" style="width: 100%; height: 96%;">'+values[2]+'</textarea></fieldset>';
 				document.getElementById('UM_notka'+user).addEventListener('keyup', function() {GM.setValue(id+"UM_notka"+user,this.value);}, false);
 			}
 			teraz = new Date();
 			teraz.setTime(teraz.getTime()+unsafeWindow.serverOffset*1000);
 			teraz = teraz.getDate()+'/'+(teraz.getMonth()+1)+'/'+teraz.getFullYear();
-			testa = values[2].split(':')[1];
-			testb = values[3].split(':')[1];
+			testa = values[3].split(':')[1];
+			testb = values[4].split(':')[1];
 			if (testa == testb && testb == teraz) {
 				var body = document.getElementsByTagName('BODY')[0];
 				body.innerHTML=body.innerHTML.replace('ATTAQUER','<s>ATTAQUER</s>');
@@ -2542,7 +2320,7 @@ var launchUnmod = function() {
 			}
 
 			var profileStats = document.getElementsByClassName('profile-stats');
-			if (values[4]) {
+			if (values[5]) {
 				var added = false;
 				var endIndex = profileStats.length;
 				for(var i = 0; i < endIndex; i++) {
@@ -3046,8 +2824,8 @@ var launchUnmod = function() {
 		Promise.all(promises).then(function(values) {
 			if(values[0]) {
 				divs = document.getElementsByClassName('top');
-				div='<div id="notesEverywhere" style="position: relative; z-index: 1; background-color: black; width: auto; float: left; border: 1px solid gray; padding: 2px 10px; margin-top: -20px; margin-left: -180px; cursor:pointer;">Notes</div>';
-				divAddNotes='<div id="notesEverywhere2" style="display: none; float: left; width: 100px; margin-top: 30px; margin-left: -180px;"><fieldset class="profile" style="text-align: center; height: 150px; width: 200px;"><textarea id="UM_notka0" style="width: 100%; height: 96%;">'+values[1]+'</textarea></fieldset>';
+				div='<div id="notesEverywhere" style="position: relative; z-index: 1; background-color: black; width: auto; float: left; border: 1px solid gray; padding: 2px 10px; margin-top: -170px; margin-left: -180px; cursor:pointer;">Notes</div>';
+				divAddNotes='<div id="notesEverywhere2" style="display: none; float: left; width: 100px; margin-top: -140px; margin-left: -180px; position: absolute; z-index: 20;"><fieldset class="profile" style="text-align: center; height: 120px; width: 200px;"><textarea id="UM_notka0" style="width: 100%; height: 96%;">'+values[1]+'</textarea></fieldset>';
 				divs[0].innerHTML+=div+divAddNotes;
 
 				var button = document.getElementById('notesEverywhere');
