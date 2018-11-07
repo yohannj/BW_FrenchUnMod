@@ -4,7 +4,7 @@
 // @description Advanced Bloodwars MODIFICATIONS
 // @include		http://r*.fr.bloodwars.net/*
 // @include		https://r*.fr.bloodwars.net/*
-// @version		3.0.0
+// @version		3.0.1
 // @grant		GM.getValue
 // @grant		GM.setValue
 // @grant		GM.setClipboard
@@ -743,15 +743,6 @@ if (a=="?a=settings") {
 
 var launchUnmod = function() {
 	// mod notki everywhere
-	x = document.createElement('span');
-	x.id="x";
-	x.style.display="none";
-	y = document.createElement('span');
-	y.id="y";
-	y.style.display="none";
-	var firstBody = document.getElementsByTagName('body')[0];
-	firstBody.appendChild(x);
-	firstBody.appendChild(y);
 	chmurka = document.createElement('div');
 	chmurka.id="chmurka";
 	chmurka.style.display="none";
@@ -763,17 +754,13 @@ var launchUnmod = function() {
 	chmurka.style.borderStyle="solid";
 	chmurka.style.padding="4px";
 	chmurka.style.backgroundColor="black";
-	firstBody.appendChild(chmurka);
-	var scriptCode = new Array();
-	scriptCode.push('	function getMouseXY(e) {');
-	scriptCode.push('		document.getElementById(\'x\').innerHTML=e.clientX;');
-	scriptCode.push('		document.getElementById(\'y\').innerHTML=e.clientY+10;');
-	scriptCode.push('	}');
-	scriptCode.push('	document.onmousemove = getMouseXY;');
-	var script = document.createElement('script');
-	script.innerHTML = scriptCode.join('\n');
-	scriptCode.length = 0;
-	document.getElementsByTagName('head')[0].appendChild(script);
+	document.getElementsByTagName('body')[0].appendChild(chmurka);
+	document.addEventListener('mousemove', e => {
+		if(chmurka.style.display==='') {
+			chmurka.style.left=parseInt(e.clientX)+"px";
+			chmurka.style.top=parseInt(e.clientY)+20+"px";
+		}
+	});
 
 	if(a.substring(0,11)=="?a=talizman") {
 		GM.getValue(id+"UM_OP_equipnopopup", true).then(function(b) {
@@ -801,7 +788,6 @@ var launchUnmod = function() {
 				}
 			}
 
-			console.log(document.getElementById('armoryTabContainer_0'));
 			if (values[1] && document.getElementById('armoryTabContainer_0')) {
 				// mod clean-zk
 				polka = document.getElementById('armoryTabContainer_0');
@@ -1902,18 +1888,16 @@ var launchUnmod = function() {
 					e_lev = Math.floor(Math.log(0.0011*(e_pts*1000+999))/Math.log(1.1));
 					if (e_lev>=t_lev) td[1].getElementsByTagName('b')[0].innerHTML+=' <span style="color: gray; float: right;">PE</span>';
 					taga = td[1].getElementsByTagName('a')[0];
-					taga.onmouseover=function() {
+					taga.onmouseenter=function() {
 						var chmurka = document.getElementById('chmurka');
+						chmurka.style.display="";
 						GM.getValue(id+"UM_notka"+this.id.substring(1), "aucune (ajouter sur le profil du joueur)").then(function(value) {
-							chmurka.style.display="";
-							chmurka.style.left=parseInt(document.getElementById('x').innerHTML)+"px";
-							chmurka.style.top=parseInt(document.getElementById('y').innerHTML)+10+"px";
 							chmurka.innerHTML='NOTES: '+this.innerHTML+"<br/><br/>"+value.replace(/\n/g,'<br />');
 						});
 					}
-					taga.onmouseout=function() {
+					taga.addEventListener('mouseleave', e => {
 						document.getElementById('chmurka').style.display="none";
-					}
+					});
 				}
 			}
 		});
@@ -2222,18 +2206,16 @@ var launchUnmod = function() {
 						taga = td[1].getElementsByTagName('a');
 						if (taga.length) {
 							taga = taga[0];
-							taga.onmouseover=function() {
+							taga.onmouseenter=function() {
 								var chmurka = document.getElementById('chmurka');
+								chmurka.style.display="";
 								GM.getValue(id+"UM_notka"+this.id.substring(1), "aucune (ajouter sur le profil du joueur)").then(function(value) {
-									chmurka.style.display="";
-									chmurka.style.left=parseInt(document.getElementById('x').innerHTML)+"px";
-									chmurka.style.top=parseInt(document.getElementById('y').innerHTML)+10+"px";
 									chmurka.innerHTML='NOTES: '+this.innerHTML+"<br/><br/>"+value;
 								});
 							}
-							taga.onmouseout=function() {
+							taga.addEventListener('mouseleave', e => {
 								document.getElementById('chmurka').style.display="none";
-							}
+							});
 						}
 						}
 					}
