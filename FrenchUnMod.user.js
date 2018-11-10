@@ -4,7 +4,7 @@
 // @description Advanced Bloodwars MODIFICATIONS
 // @include		http://r*.fr.bloodwars.net/*
 // @include		https://r*.fr.bloodwars.net/*
-// @version		3.0.2
+// @version		3.0.3
 // @grant		GM.getValue
 // @grant		GM.setValue
 // @grant		GM.setClipboard
@@ -1670,7 +1670,13 @@ var launchUnmod = function() {
 									msg += " - Meilleure offre : " +td[4].innerHTML.replace(/[\t\n]/g,'').trim().replace(/\s+-/, ' -').replace(/\/fer/g,' pdp/fer');
 								}
 							}
-							dateSplitted = td[5].innerHTML.replace("\n", "").trim().split("<br>");
+							dateSplitted = td[5]
+											.innerHTML
+											.replace("\n", "")
+											.replace("<div>", "")
+											.replace(/<\/div>(.*\r?\n.*)*/, "")
+											.trim()
+											.split("<br>");
 							if(recipient=="forum") {
 								msg +=	" pdp[/color] - Fin d'enchère le "+dateSplitted[0]+" à "+dateSplitted[1]+"\r\n";
 							} else {
