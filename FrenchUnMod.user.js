@@ -4,7 +4,7 @@
 // @description Advanced Bloodwars MODIFICATIONS
 // @include		http://r*.fr.bloodwars.net/*
 // @include		https://r*.fr.bloodwars.net/*
-// @version		3.0.1
+// @version		3.0.2
 // @grant		GM.getValue
 // @grant		GM.setValue
 // @grant		GM.setClipboard
@@ -1670,7 +1670,7 @@ var launchUnmod = function() {
 									msg += " - Meilleure offre : " +td[4].innerHTML.replace(/[\t\n]/g,'').trim().replace(/\s+-/, ' -').replace(/\/fer/g,' pdp/fer');
 								}
 							}
-							dateSplitted = td[5].innerHTML.split("<br>");
+							dateSplitted = td[5].innerHTML.replace("\n", "").trim().split("<br>");
 							if(recipient=="forum") {
 								msg +=	" pdp[/color] - Fin d'enchère le "+dateSplitted[0]+" à "+dateSplitted[1]+"\r\n";
 							} else {
@@ -1734,10 +1734,8 @@ var launchUnmod = function() {
 				}
         
 				tr = table.getElementsByTagName('TR');
-        console.log(tr);
 				for (i=1; i<tr.length; i++) {
 					td = tr[i].getElementsByTagName('TD');
-          console.log(td);
 					sztuk = parseInt(td[1+correction].innerHTML.substring(td[1+correction].innerHTML.search(':')+1).replace('</span>','').replace(/ /g,''));
 					oferta = parseInt(td[3+correction].innerHTML.replace(/ /g,''));
 
