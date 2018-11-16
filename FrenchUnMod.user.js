@@ -4,7 +4,7 @@
 // @description Advanced Bloodwars MODIFICATIONS
 // @include		http://r*.fr.bloodwars.net/*
 // @include		https://r*.fr.bloodwars.net/*
-// @version		3.0.4
+// @version		3.0.5
 // @grant		GM.getValue
 // @grant		GM.setValue
 // @grant		GM.setClipboard
@@ -2140,11 +2140,19 @@ var launchUnmod = function() {
 		});
 	}
 
-	if (a.indexOf("?a=msg") > -1 || a.indexOf("showmsg.php") > -1) {
+	if (a.indexOf("?a=msg") > -1 || location.pathname.indexOf("showmsg.php") > -1) {
 		GM.getValue(id+"UM_OP_hideBattleAnimation", true).then(function(value) {
 			if(value) {
-				document.getElementById('msgFullText').className = "";
-				document.getElementById('msgClickToReadFullText').className = "hidden";
+				var msgFullText = document.getElementById('msgFullText');
+				if(msgFullText) {
+					msgFullText.className = "";
+				}
+
+				var msgClickToReadFullText = document.getElementById('msgClickToReadFullText');
+				if(msgClickToReadFullText) {
+					msgClickToReadFullText.className = "hidden";
+				}
+
 				var metadata = document.getElementById('msgMetaDataDisplay');
 				if (metadata) {
 					metadata.parentNode.removeChild(metadata);
