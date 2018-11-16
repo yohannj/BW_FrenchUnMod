@@ -4,7 +4,7 @@
 // @description Advanced Bloodwars MODIFICATIONS
 // @include		http://r*.fr.bloodwars.net/*
 // @include		https://r*.fr.bloodwars.net/*
-// @version		3.0.3
+// @version		3.0.4
 // @grant		GM.getValue
 // @grant		GM.setValue
 // @grant		GM.setClipboard
@@ -498,6 +498,7 @@ if (a=="?a=settings") {
 	promises.push(GM.getValue(id+"UM_OP_youtube", true));
 	promises.push(GM.getValue(id+"UM_OP_alarm_h", 0));
 	promises.push(GM.getValue(id+"UM_OP_alarm_m", 0));
+	promises.push(GM.getValue(id+"UM_OP_hideBattleAnimation", true));
 	
 	Promise.all(promises).then(function(values) {
 		div = document.getElementsByClassName('hr720')[0];
@@ -620,6 +621,10 @@ if (a=="?a=settings") {
 		opcje+=' id="UM_OP_invMsg"> permet d\'inverser les messages sélectionnés selon leur type</td></tr>';
 
 		opcje+='<tr><td><input type="checkbox"';
+		if (values[34]) opcje+=' checked="checked"';
+		opcje+=' id="UM_OP_hideBattleAnimation"> cacher les animations des RC</td></tr>';
+
+		opcje+='<tr><td><input type="checkbox"';
 		if (values[24]) opcje+=' checked="checked"';
 		opcje+=' id="UM_OP_statBuilding"> affiche l\'heure de fin de la prochaine construction en haut de l\'écran</td></tr>';
 
@@ -659,6 +664,7 @@ if (a=="?a=settings") {
 		opcje+='<tr><td style="color: red;"><BR><b><center>Avec cette modification, n`oubliez pas de d`arrêter tout les script GreaseMonkey pour BW, comme la dernière fois!</center>';
 		opcje+='</td></tr>';
 		opcje+='<tr><td style=""><BR><b style=""><center>Table des fonctionnalités (de la plus récente à la plus ancienne)</center></b><BR>';
+		opcje+='- possibilité de cacher les animations des RC<br>';
 		opcje+='- préremplissage des arcanes et évolutions en Expédition et Roi de la Colline<br>';
 		opcje+='- inverser la sélection des messages selon leur type<br>';
 		opcje+='- enlever les popup lors des changements de stuff et de talismans<br>';
@@ -733,6 +739,7 @@ if (a=="?a=settings") {
 		document.getElementById('UM_OP_showHideArenaStats').addEventListener('click', function() {GM.setValue(id+"UM_OP_showHideArenaStats",this.checked);}, false);
 		document.getElementById('UM_OP_copyAuction').addEventListener('click', function() {GM.setValue(id+"UM_OP_copyAuction",this.checked);}, false);
 		document.getElementById('UM_OP_invMsg').addEventListener('click', function() {GM.setValue(id+"UM_OP_invMsg",this.checked);}, false);
+		document.getElementById('UM_OP_hideBattleAnimation').addEventListener('click', function() {GM.setValue(id+"UM_OP_hideBattleAnimation",this.checked);}, false);
 		document.getElementById('UM_OP_alarm_h').addEventListener('change', function() {GM.setValue(id+"UM_OP_alarm_h",this.value);}, false);
 		document.getElementById('UM_OP_alarm_m').addEventListener('change', function() {GM.setValue(id+"UM_OP_alarm_m",this.value);}, false);
 		//document.getElementById('UM_urlsound').addEventListener('change', function() {GM.setValue(id+"UM_urlsound",this.value);}, false);
@@ -764,10 +771,10 @@ var launchUnmod = function() {
 
 	if(a.substring(0,11)=="?a=talizman") {
 		GM.getValue(id+"UM_OP_equipnopopup", true).then(function(b) {
-      if(b) {
-        var talismanRegex = /if \(confirm\('Êtes vous certain de vouloir équiper l`ensemble de talismans numéro \d+ \([^\)]+\)\?'\)\) /g;
-        $('.equip')[0].outerHTML = $('.equip')[0].outerHTML.replace(talismanRegex, '');
-      }
+		if(b) {
+			var talismanRegex = /if \(confirm\('Êtes vous certain de vouloir équiper l`ensemble de talismans numéro \d+ \([^\)]+\)\?'\)\) /g;
+			$('.equip')[0].outerHTML = $('.equip')[0].outerHTML.replace(talismanRegex, '');
+		}
 		});
 	}
 
@@ -1738,7 +1745,7 @@ var launchUnmod = function() {
 				if (document.getElementsByTagName('TABLE')[3].innerHTML.search('Ton offre ')>0) {
 					table = document.getElementsByTagName('TABLE')[7];
 				}
-        
+
 				tr = table.getElementsByTagName('TR');
 				for (i=1; i<tr.length; i++) {
 					td = tr[i].getElementsByTagName('TD');
@@ -2133,6 +2140,19 @@ var launchUnmod = function() {
 		});
 	}
 
+	if (a.indexOf("?a=msg") > -1 || a.indexOf("showmsg.php") > -1) {
+		GM.getValue(id+"UM_OP_hideBattleAnimation", true).then(function(value) {
+			if(value) {
+				document.getElementById('msgFullText').className = "";
+				document.getElementById('msgClickToReadFullText').className = "hidden";
+				var metadata = document.getElementById('msgMetaDataDisplay');
+				if (metadata) {
+					metadata.parentNode.removeChild(metadata);
+				}
+			}
+		});
+	}
+
 	if (a.substring(0,11)=="?a=townview") {
 		GM.getValue(id+"UM_OP_evoNotes", true).then(function(v) {
 			if(v) {
@@ -2274,7 +2294,7 @@ var launchUnmod = function() {
 		var promises = [];
 		promises.push(GM.getValue(id+"UM_OP_levelcalc", true));
 		promises.push(GM.getValue(id+"UM_OP_evoNotes", true));
-    promises.push(GM.getValue(id+"UM_notka"+user, ""));
+		promises.push(GM.getValue(id+"UM_notka"+user, ""));
 		promises.push(GM.getValue(id+'UM_1_'+user, "A:B"));
 		promises.push(GM.getValue(id+'UM_2_'+user, "C:D"));
 		promises.push(GM.getValue(id+"UM_OP_showHideArenaStats", false));
