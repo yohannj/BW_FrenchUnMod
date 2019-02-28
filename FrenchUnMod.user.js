@@ -4,7 +4,7 @@
 // @description Advanced Bloodwars MODIFICATIONS
 // @include		http://r*.fr.bloodwars.net/*
 // @include		https://r*.fr.bloodwars.net/*
-// @version		3.0.6
+// @version		3.0.7
 // @grant		GM.getValue
 // @grant		GM.setValue
 // @grant		GM.setClipboard
@@ -48,7 +48,7 @@ var WOM = 0;
 /////////////////////////
 
 var raceCalc = function(RACE){
-	if (RACE=="capteur d`esprit"){
+	if (RACE=="capteur d’esprit"){
 		CE++;
 	}
 	if (RACE=="cultiste"){
@@ -542,19 +542,19 @@ if (a=="?a=settings") {
 
 		opcje+='<tr><td><input type="checkbox"';
 		if (values[6]) opcje+=' checked="checked"';
-		opcje+=' id="UM_OP_mysort"> reclasse la page de classement où je me trouve (par possibilité d`attaque)</td></tr>';
+		opcje+=' id="UM_OP_mysort"> reclasse la page de classement où je me trouve (par possibilité d’attaque)</td></tr>';
 
 		opcje+='<tr><td><input type="checkbox"';
 		if (values[7]) opcje+=' checked="checked"';
-		opcje+=' id="UM_OP_mysort1"> reclasse la 1ère page de classement (par possibilité d`attaque)</td></tr>';
+		opcje+=' id="UM_OP_mysort1"> reclasse la 1ère page de classement (par possibilité d’attaque)</td></tr>';
 
 		opcje+='<tr><td><input type="checkbox"';
 		if (values[8]) opcje+=' checked="checked"';
-		opcje+=' id="UM_OP_mysort2"> reclasse la 2ème page de classement (par possibilité d`attaque)</td></tr>';
+		opcje+=' id="UM_OP_mysort2"> reclasse la 2ème page de classement (par possibilité d’attaque)</td></tr>';
 
 		opcje+='<tr><td><input type="checkbox"';
 		if (values[9]) opcje+=' checked="checked"';
-		opcje+=' id="UM_OP_mysort3"> reclasse toutes les pages de classement (par possibilité d`attaque)</td></tr>';
+		opcje+=' id="UM_OP_mysort3"> reclasse toutes les pages de classement (par possibilité d’attaque)</td></tr>';
 
 
 		opcje+="<tr><td><br />Clan<hr/></td></tr>";
@@ -595,7 +595,7 @@ if (a=="?a=settings") {
 
 		opcje+='<tr><td><input type="checkbox"';
 		if (values[17]) opcje+=' checked="checked"';
-		opcje+=' id="UM_OP_sellLowItem"> (cliquer sur EFFACER, à côté d`INVERSER) vendre les items NON Epique de l`étagère 1 valant moins de (LOL): <input type="text" style="width:50px;" id="UM_zkclean" value="'+values[18]+'"></td></tr>';
+		opcje+=' id="UM_OP_sellLowItem"> (cliquer sur EFFACER, à côté d’INVERSER) vendre les items NON Epique de l’étagère 1 valant moins de (LOL): <input type="text" style="width:50px;" id="UM_zkclean" value="'+values[18]+'"></td></tr>';
 
 		opcje+='<tr><td><input type="checkbox"';
 		if (values[19]) opcje+=' checked="checked"';
@@ -642,7 +642,7 @@ if (a=="?a=settings") {
 
 		//opcje+='<tr><td><input type="checkbox"';
 		//if (values[28]) opcje+=' checked="checked"';
-		//opcje+=' id="UM_OP_donesound"> jouer un son lorsqu`une quête/attaque est finie <input type="text" id="UM_urlsound" value="'+values[29]+'"></td></tr>';
+		//opcje+=' id="UM_OP_donesound"> jouer un son lorsqu’une quête/attaque est finie <input type="text" id="UM_urlsound" value="'+values[29]+'"></td></tr>';
 
 		opcje+='<tr><td><input type="checkbox"';
 		if (values[30]) opcje+=' checked="checked"';
@@ -661,7 +661,7 @@ if (a=="?a=settings") {
 		opcje+="<tr><td><br /><br /></td></tr>"; // Put some space
 
 
-		opcje+='<tr><td style="color: red;"><BR><b><center>Avec cette modification, n`oubliez pas de d`arrêter tout les script GreaseMonkey pour BW, comme la dernière fois!</center>';
+		opcje+='<tr><td style="color: red;"><BR><b><center>Avec cette modification, n’oubliez pas de d’arrêter tout les script GreaseMonkey pour BW, comme la dernière fois!</center>';
 		opcje+='</td></tr>';
 		opcje+='<tr><td style=""><BR><b style=""><center>Table des fonctionnalités (de la plus récente à la plus ancienne)</center></b><BR>';
 		opcje+='- possibilité de cacher les animations des RC<br>';
@@ -673,32 +673,32 @@ if (a=="?a=settings") {
 		opcje+='- possibilité de cacher les statistiques en arène sur le profil des joueurs<br>';
 		opcje+='- ajout de notes visibles sur toutes les pages<br>';
 		opcje+='- ajout du script levelcalc<br>';
-		opcje+='- statistiques à la fin des combats; ceux qui ont lancé le plus d`attaque ou fais le plus de critique son encadré.<br>';
-		opcje+='- sur le profil d`un joueur, «ATTAQUER» est barré si vous avez déjà attaqué cette personne deux fois. Si vous avez déjà attaqué cette personne une fois il est écrit «ATTAQUER UNE SECONDE FOIS»<br>';
-		opcje+='- sur les pages de classements où les joueurs sont affichés par ordre de disponibilité d`attaque, les personnes disponibles mais que vous avez déjà attaqué aujourd`hui voient leurs icones devenir transparente (faible transparence si attaqué une fois, forte transparence si attaqué deux fois)<br>';
+		opcje+='- statistiques à la fin des combats; ceux qui ont lancé le plus d’attaque ou fais le plus de critique son encadré.<br>';
+		opcje+='- sur le profil d’un joueur, «ATTAQUER» est barré si vous avez déjà attaqué cette personne deux fois. Si vous avez déjà attaqué cette personne une fois il est écrit «ATTAQUER UNE SECONDE FOIS»<br>';
+		opcje+='- sur les pages de classements où les joueurs sont affichés par ordre de disponibilité d’attaque, les personnes disponibles mais que vous avez déjà attaqué aujourd’hui voient leurs icones devenir transparente (faible transparence si attaqué une fois, forte transparence si attaqué deux fois)<br>';
 		opcje+='- informations pour réussir les missions<br>';
 		opcje+='- possibilité de cacher les descriptions publique et privée de son clan<br>';
 		opcje+='- affichage complet des informations des ouu dans le magasin<br>';
-		opcje+='- les dates en haut de l`écran sont désormais affichée dans l`armurerie et la vue de la cité<br>';
+		opcje+='- les dates en haut de l’écran sont désormais affichée dans l’armurerie et la vue de la cité<br>';
 		opcje+='- conversion des liens youtube dans la shoutbox vers un player<br>';
 		opcje+='- amélioration de la page des enchères qui concerne les ferrailles en cours de vente<br>';
-		opcje+='- parmi les enchères observées, affiche le temps restant de la prochaine enchère qui va se terminer. L`affichage est dupliqué en haut de l`écran (il faut repasser voir les enchères observées pour mettre à jour)<br>';
+		opcje+='- parmi les enchères observées, affiche le temps restant de la prochaine enchère qui va se terminer. L’affichage est dupliqué en haut de l’écran (il faut repasser voir les enchères observées pour mettre à jour)<br>';
 		opcje+='- prise en charge de ALT + flèche haut/bas: changer de page de classement<br>';
-		opcje+='- ajout de la date exacte de la fin d`une construction<br>';
+		opcje+='- ajout de la date exacte de la fin d’une construction<br>';
 		opcje+='- affiche le nombre de niveaux qui peuvent encore être accepté en expé et rdc<br>';
 		opcje+='- prend en compte la différence de fuseaux horaires<br>';
 		opcje+='- le temps restant pour finir une construction est placé à côté des annonces bw<br>';
 		opcje+='- alarme<br>';
 		opcje+='- possibilité de désactiver UnMod sur un serveur sans le désactiver sur les autres serveurs<br>';
-		opcje+='- sélection et vente rapide d`items de moindre qualité (de base, items de moins de 2000 LOL)<br>';
-		opcje+='- tri du classement selon les possibilités d`attaques<br>';
+		opcje+='- sélection et vente rapide d’items de moindre qualité (de base, items de moins de 2000 LOL)<br>';
+		opcje+='- tri du classement selon les possibilités d’attaques<br>';
 		opcje+='- dans les enchères, mets en évidence les objets de qualité légendaire<br>';
-		opcje+='- sur le classement/la vue sur la cité, il y a un E à côté du pseudo si le joueur vous rapporte au moins 1 PE (affiché même si vous n`êtes pas acte 3)<br>';
-		opcje+='- sur les pages de rdc, expé et embuscade, s`il y a une action en cours, le nom de l`onglet affiche le temps restant avant la fin de l`action<br>';
-		opcje+='- ajout du cout total des stats sur la page d`entrainement<br>';
-		opcje+='- ajout d`une option pour que le chat clanique soit automatiquement ouvert<br>';
-		opcje+='- votre choix d`options de ce script est propre à chaque serveur<br>';
-		opcje+='- ajout d`une note sur le profil de chaque joueur!<br>';
+		opcje+='- sur le classement/la vue sur la cité, il y a un E à côté du pseudo si le joueur vous rapporte au moins 1 PE (affiché même si vous n’êtes pas acte 3)<br>';
+		opcje+='- sur les pages de rdc, expé et embuscade, s’il y a une action en cours, le nom de l’onglet affiche le temps restant avant la fin de l’action<br>';
+		opcje+='- ajout du cout total des stats sur la page d’entrainement<br>';
+		opcje+='- ajout d’une option pour que le chat clanique soit automatiquement ouvert<br>';
+		opcje+='- votre choix d’options de ce script est propre à chaque serveur<br>';
+		opcje+='- ajout d’une note sur le profil de chaque joueur!<br>';
 		opcje+='</td></tr>';
 		opcje+='</table></center><BR><BR>';
 		div.innerHTML+=opcje;
@@ -772,7 +772,8 @@ var launchUnmod = function() {
 	if(a.substring(0,11)=="?a=talizman") {
 		GM.getValue(id+"UM_OP_equipnopopup", true).then(function(b) {
 		if(b) {
-			var talismanRegex = /if \(confirm\('Êtes vous certain de vouloir équiper l`ensemble de talismans numéro \d+ \([^\)]+\)\?'\)\) /g;
+			var talismanRegex = /if \(confirm\('Êtes vous certain de vouloir équiper l’ensemble de talismans numéro \d+ \([^\)]+\)\?'\)\) /g;
+
 			$('.equip')[0].outerHTML = $('.equip')[0].outerHTML.replace(talismanRegex, '');
 		}
 		});
@@ -786,7 +787,7 @@ var launchUnmod = function() {
 
 		Promise.all(promises).then(function(values) {
 			if (values[0]) {
-				var equipmentRegex = /if \(confirm\('Êtes-vous sûr de vouloir equiper cet ensemble d`objets\? \([^\)]+\)'\)\) /g;
+				var equipmentRegex = /if \(confirm\('Êtes-vous sûr de vouloir equiper cet ensemble d’objets\? \([^\)]+\)'\)\) /g;
 				var elements = $('div[onclick]');
 				for(var i = 0, end = elements.length; i < end; ++i) {
 					if(elements[i].outerHTML.match(equipmentRegex)) {
@@ -1143,7 +1144,7 @@ var launchUnmod = function() {
 				};
 
 				var cleanSiteName = function(dirtySiteName) {
-					return dirtySiteName.replace(/\(.*\)/,'').replace(/niveau\s\d/,'').replace(/[`\s]/g,'');
+					return dirtySiteName.replace(/\(.*\)/,'').replace(/niveau\s\d/,'').replace(/[’\s]/g,'');
 				}
 
 				var inputClickHandler = function(event) {
@@ -1214,7 +1215,7 @@ var launchUnmod = function() {
 	}
 
 	if (a=="?a=aliance") {
-		var corrNbDivs = 0; //Sert à l`affichage de la légende pour levelCalc et doit rester au début de ce if
+		var corrNbDivs = 0; //Sert à l’affichage de la légende pour levelCalc et doit rester au début de ce if
 
 		var promises = [];
 		promises.push(GM.getValue(id+"UM_OP_ukryj", true));
@@ -1246,7 +1247,7 @@ var launchUnmod = function() {
 				opis = document.getElementsByClassName('clan-desc');
 				if (opis.length) {
 					opis = opis[0];
-					opis.innerHTML='<center><a id="UM_OP_ukryj" href="javascript:">DESACTIVER L`OPTION QUI CACHE CE CADRE !</a></center>';
+					opis.innerHTML='<center><a id="UM_OP_ukryj" href="javascript:">DESACTIVER L’OPTION QUI CACHE CE CADRE !</a></center>';
 					document.getElementById('UM_OP_ukryj').addEventListener('click', function() {GM.setValue(id+"UM_OP_ukryj",false); location.reload();}, false);
 				}
 			} else {
@@ -1264,7 +1265,7 @@ var launchUnmod = function() {
 				opis = document.getElementsByClassName('clan-desc');
 				if (opis.length) {
 					opis = opis[1];
-					opis.innerHTML='<center><a id="UM_OP_ukryj2" href="javascript:">DESACTIVER L`OPTION QUI CACHE CE CADRE !</a></center>';
+					opis.innerHTML='<center><a id="UM_OP_ukryj2" href="javascript:">DESACTIVER L’OPTION QUI CACHE CE CADRE !</a></center>';
 					document.getElementById('UM_OP_ukryj2').addEventListener('click', function() {GM.setValue(id+"UM_OP_ukryj2",false); location.reload();}, false);
 				}
 			} else {
@@ -1357,7 +1358,7 @@ var launchUnmod = function() {
 										<td width=\"80\">ADRESSE</td>\
 										<td width=\"270\">RACE</td>\
 										<td width=\"50\">POINTS</td>\
-										<td width=\"150\">Date d`inscription</td>\
+										<td width=\"150\">Date d’inscription</td>\
 									</tr>";
 				lp = 1;
 				for (var i = 0; i < nowe.length; i++) {
@@ -1504,7 +1505,7 @@ var launchUnmod = function() {
 															<td width=\"110\">Grade</td>\
 															<td width=\"80\">ADRESSE</td>\
 															<td width=\"50\">POINTS</td>\
-															<td width=\"150\">Date d`inscription</td></tr>"
+															<td width=\"150\">Date d’inscription</td></tr>"
 					lp = 1;
 					for (var i = 0; i < nowe.length; i++) {
 						if (i%2==0) tabela+="<tr align=center>"; else	tabela+="<tr align=center class=even>";
@@ -2344,7 +2345,7 @@ var launchUnmod = function() {
 							opis.parentNode.removeChild(opis);
 							i--;
 						} else {
-							opis.innerHTML='<tr><td colspan="6"><a id="UM_OP_showHideArenaStats" href="javascript:">DESACTIVER L`OPTION QUI CACHE LES STATS D\'ARÈNE !</a></td></tr>';
+							opis.innerHTML='<tr><td colspan="6"><a id="UM_OP_showHideArenaStats" href="javascript:">DESACTIVER L’OPTION QUI CACHE LES STATS D\'ARÈNE !</a></td></tr>';
 							document.getElementById('UM_OP_showHideArenaStats').addEventListener('click', function() {GM.setValue(id+"UM_OP_showHideArenaStats",false); location.reload();}, false);
 							added = true;
 						}
@@ -2386,7 +2387,7 @@ var launchUnmod = function() {
 				}
 				version = document.getElementById('content-mid');
 				ver2 = document.createElement('SPAN');
-				ver2.innerHTML='<br><center>COÛT TOTAL DE L`ENTRAINEMENT: &nbsp;&nbsp;&nbsp;<b>'+suma2+'</b></center>';
+				ver2.innerHTML='<br><center>COÛT TOTAL DE L’ENTRAINEMENT: &nbsp;&nbsp;&nbsp;<b>'+suma2+'</b></center>';
 				version.appendChild(ver2,version.firstChild);
 			}
 		});
@@ -2594,73 +2595,73 @@ var launchUnmod = function() {
 				// s1
 				juenOpis('Le prestige entre les vampires, ce n’est pas seulement la richesse et le pouvoir. Seul un grand guerrier inspire le respect. Gagne 15 embuscades consécutives. Les défenses ne comptent pas.','Réussir 15 attaques consécutives.');
 				juenOpis('Malgré les avertissements donnés par tes conseillers, de temps en temps tu te promènes seul aux alentours de la ville. Tu te remémore les jours où tu étais un novice dans le monde des vampires, un novice qui rêvait de gloire et de pouvoir.','Combat en un contre un dans une quête dans les environs de La Cité.');
-				juenOpis('Atteints le 89-ième niveau d`expérience. ','Gagner un niveau qui fait monter au moins au niveau 89.');
-				juenOpis('Toutes les sombres et mystérieuses histoires sont soudain devenues claires. À la porte de la ville une armée de puissants sorciers n`ayant qu`un but, la destruction totale de la ville et la "libération" des esclaves opprimés par les vampires, s’apprêtait à donner l’assaut. Le temps est venu pour tous les vampires de se liguer contre l`ennemi commun.','Lancer un siège. Très difficile mais le nombre d`ennemis varie beaucoup et aléatoirement.');
+				juenOpis('Atteints le 89-ième niveau d’expérience. ','Gagner un niveau qui fait monter au moins au niveau 89.');
+				juenOpis('Toutes les sombres et mystérieuses histoires sont soudain devenues claires. À la porte de la ville une armée de puissants sorciers n’ayant qu’un but, la destruction totale de la ville et la "libération" des esclaves opprimés par les vampires, s’apprêtait à donner l’assaut. Le temps est venu pour tous les vampires de se liguer contre l’ennemi commun.','Lancer un siège. Très difficile mais le nombre d’ennemis varie beaucoup et aléatoirement.');
 
 
 				// s2 (opisy zbieral Prime Lust - https://docs.google.com/document/d/1eMFHEc0ieY_254Qsjs-90peIv2olOjEYpvsVYC1wQSU/edit?pli=1
-				juenOpis('Atteints le 80-ième niveau d`expérience. ','Gagner un niveau qui fait monter au moins au niveau 80.');
-				juenOpis('Prouve ton talent pour les affaires. Fais bâtir Le Cimetière et La Banque de Sang. ','Construire le cimetière et la banque du sang. Si l`un des deux est déjà construit, il suffit de construire l`autre. Si les deux sont déjà construit, il suffit de monter le niveau de l`un d`eux.');
+				juenOpis('Atteints le 80-ième niveau d’expérience. ','Gagner un niveau qui fait monter au moins au niveau 80.');
+				juenOpis('Prouve ton talent pour les affaires. Fais bâtir Le Cimetière et La Banque de Sang. ','Construire le cimetière et la banque du sang. Si l’un des deux est déjà construit, il suffit de construire l’autre. Si les deux sont déjà construit, il suffit de monter le niveau de l’un d’eux.');
 				juenOpis('Conquiers les cours et les esprits de la foule. Acquis 50 points de charisme','Monter le charisme à 50 ou plus.');
-				juenOpis('L`Ordre de Saint Benoît a envoyé un assassin à ta trousse. Trouve le dans les environs de La Cité.','Combat en un contre un dans une quête dans les environs de La Cité.');
+				juenOpis('L’Ordre de Saint Benoît a envoyé un assassin à ta trousse. Trouve le dans les environs de La Cité.','Combat en un contre un dans une quête dans les environs de La Cité.');
 				juenOpis('Deviens le maître des plus obscures coins de La Cité. Acquis 55 points de réputation.','Monter la réputation à 55 ou plus.');
-				juenOpis('Ton quartier a été assailli par les paladins de l`Ordre de Saint Benoît. Prépare-toi à l`ultime bataille entre les deux forces opposées... ','Effectuez un siege contre votre quartier, attention tous les ennemis utilisent l`arcane absorption de force.');
-				juenOpis('Le Grand Maître de l`Ordre a échappé à la mort pendant la dernière bataille. Tu le trouvera quelque part dans l`impitoyable désert. Vas-y et offre-lui l`opportunité de rencontrer son dieu...','Combat en un contre deux dans une quête de type pèlerinage.');
+				juenOpis('Ton quartier a été assailli par les paladins de l’Ordre de Saint Benoît. Prépare-toi à l’ultime bataille entre les deux forces opposées... ','Effectuez un siege contre votre quartier, attention tous les ennemis utilisent l’arcane absorption de force.');
+				juenOpis('Le Grand Maître de l’Ordre a échappé à la mort pendant la dernière bataille. Tu le trouvera quelque part dans l’impitoyable désert. Vas-y et offre-lui l’opportunité de rencontrer son dieu...','Combat en un contre deux dans une quête de type pèlerinage.');
 				juenOpis('Deviens Le Maître de la Cité. Là et maintenant.','Passer en zone 1.');
 				juenOpis('Le Seigneur de l’Obscurité veut que dans sa Cathédrale on ne manque pas de sang. Etant un membre de Cercle Intérieur tu es obligé de faire un sacrifice. Accumule 800 000 litres de sang et sacrifie 10% de cette réserve au Seigneur.','Cliquer sur «Cliquez ici pour donnez les ressources» une fois les 800 000 litres de sang sur soi.');
-				juenOpis('Une véritable expérience ne peut s’acquérir qu`en parcourant les voies dangereuse. Fait au moins 15 pèlerinages (réussis) vers l`inconnu.','Réussir 15 pèlerinages en z2. Le jeu conserve le nombre de pèlerinage réussi même si on descend ou monte de zone entre deux sessions d`essais.');
-				juenOpis('Tu as été informé d`une anomalie étrange située quelque part dans le désert. Trouve et explique ce phénomène mystérieux.','Réussir un pèlerinage avec comme test ??? qui est une moyenne entre votre intelligence et votre savoir.');
-				juenOpis('Tes agents t`ont signalé que près d`un pillard tué aux alentours d`une ville ils ont trouvés une lettre. Cette lettre indique que ton arrière-petite-fille, Anhala est emprisonnée sur les Champs de Couvoirs. Organise une expédition de secours.','Lancer n`importe quelle expédition, 1 gargouille de 6-8K PV par participant (minimum 3 gargouilles). Assez difficile, il est conseillé d`avoir plus de 90 d`agilité pour esquiver leurs attaques.');
-				juenOpis('La ville entière observe les membres du Conseil. Montre ta puissance et assure le sang pour tes protégés. Développe l`Hôpital jusqu`au niveau 7 et la Boucherie jusqu`au niveau 22.','Construire l`hôpital au niveau 7 et la boucherie au niveau 22. Si l`un des deux est déjà construit à un niveau suffisant, il suffit de construire l`autre au niveau requis. Si les deux sont déjà construit aux niveaux requis, il suffit de monter le niveau de l`un d`eux.');
-				juenOpis('La réputation ce n`est pas tout, les vampires ne suivent que les plus puissants. Atteins le 84-ième niveau d`expérience.','Gagner un niveau qui fait monter au moins au niveau 84.');
+				juenOpis('Une véritable expérience ne peut s’acquérir qu’en parcourant les voies dangereuse. Fait au moins 15 pèlerinages (réussis) vers l’inconnu.','Réussir 15 pèlerinages en z2. Le jeu conserve le nombre de pèlerinage réussi même si on descend ou monte de zone entre deux sessions d’essais.');
+				juenOpis('Tu as été informé d’une anomalie étrange située quelque part dans le désert. Trouve et explique ce phénomène mystérieux.','Réussir un pèlerinage avec comme test ??? qui est une moyenne entre votre intelligence et votre savoir.');
+				juenOpis('Tes agents t’ont signalé que près d’un pillard tué aux alentours d’une ville ils ont trouvés une lettre. Cette lettre indique que ton arrière-petite-fille, Anhala est emprisonnée sur les Champs de Couvoirs. Organise une expédition de secours.','Lancer n’importe quelle expédition, 1 gargouille de 6-8K PV par participant (minimum 3 gargouilles). Assez difficile, il est conseillé d’avoir plus de 90 d’agilité pour esquiver leurs attaques.');
+				juenOpis('La ville entière observe les membres du Conseil. Montre ta puissance et assure le sang pour tes protégés. Développe l’Hôpital jusqu’au niveau 7 et la Boucherie jusqu’au niveau 22.','Construire l’hôpital au niveau 7 et la boucherie au niveau 22. Si l’un des deux est déjà construit à un niveau suffisant, il suffit de construire l’autre au niveau requis. Si les deux sont déjà construit aux niveaux requis, il suffit de monter le niveau de l’un d’eux.');
+				juenOpis('La réputation ce n’est pas tout, les vampires ne suivent que les plus puissants. Atteins le 84-ième niveau d’expérience.','Gagner un niveau qui fait monter au moins au niveau 84.');
 
 				// s3 (opisy zbieral Prime Lust - https://docs.google.com/document/d/1eMFHEc0ieY_254Qsjs-90peIv2olOjEYpvsVYC1wQSU/edit?pli=1
-				juenOpis('Accomplis tous les Pèlerinages vers L`Inconnu.','Réussir un pèlerinage qui complète la série des 9 pèlerinages à accomplir dans l`ordre. Dans le cas où vous les auriez déjà complétés, il suffit de réussir un pèlerinage.')
-				juenOpis('Dans un coin inconnu du désert le Roi Des Loups rassemble des troupes pour régler ton compte. Trouve sa demeure et épargne-lui cette peine en l`achevant. La légende dit qu`il ne peut être tué seulement à l`aide de balles en argent... ','Combat en un contre trois ou quatre dans une quête de type pèlerinage.')
-				juenOpis('Atteints le 50-ième niveau d`expérience. ','Gagner un niveau qui fait monter au moins au niveau 50.')
-				juenOpis('Fais bâtir toutes les constructions de la troisième zone. ','Construire le quotidien local et l`hôpital. Si l`un des deux est déjà construit, il suffit de construire l`autre. Si les deux sont déjà construit, il suffit de monter le niveau de l`un d`eux.')
-				juenOpis('Depuis toujours, les règles de guerre disent que la meilleur forme de défense c`est l`attaque. Développe le Magasin D`Armes jusqu`au niveau 5.','Construire le magasin d`armes au niveau 5 ou plus.')
-				juenOpis('Depuis toujours, les règles de guerre disent que la meilleure forme de défense c`est l`attaque. Développe le Magasin D`Armes jusqu`au niveau 5.','Construire le magasin d`armes au niveau 5 ou plus.') 
-				juenOpis('Dernièrement, tes rivaux ont toujours une longueur d`avance sur toi. Développe le Quotidien Local jusqu`au niveau 4 pour mieux réagir aux activités des espions adverses.','Construire le quotidien local au niveau 4 ou plus.')
-				juenOpis('Tes agents de sécurité ont découvert une clique d`espions. Ils occupent un des immeubles dans ton quartier. Organise un siège et extermine les comme des termites.','Lancer un siège sur son propre quartier. Plutôt simple.')
-				juenOpis('Depuis toujours, tu étais sûr que ce jour arriverait bien à un moment ou un autre... Passe à la Deuxième Zone et deviens l`un des membres du Conseil!','Passer en zone 2.')
+				juenOpis('Accomplis tous les Pèlerinages vers L’Inconnu.','Réussir un pèlerinage qui complète la série des 9 pèlerinages à accomplir dans l’ordre. Dans le cas où vous les auriez déjà complétés, il suffit de réussir un pèlerinage.')
+				juenOpis('Dans un coin inconnu du désert le Roi Des Loups rassemble des troupes pour régler ton compte. Trouve sa demeure et épargne-lui cette peine en l’achevant. La légende dit qu’il ne peut être tué seulement à l’aide de balles en argent... ','Combat en un contre trois ou quatre dans une quête de type pèlerinage.')
+				juenOpis('Atteints le 50-ième niveau d’expérience. ','Gagner un niveau qui fait monter au moins au niveau 50.')
+				juenOpis('Fais bâtir toutes les constructions de la troisième zone. ','Construire le quotidien local et l’hôpital. Si l’un des deux est déjà construit, il suffit de construire l’autre. Si les deux sont déjà construit, il suffit de monter le niveau de l’un d’eux.')
+				juenOpis('Depuis toujours, les règles de guerre disent que la meilleur forme de défense c’est l’attaque. Développe le Magasin D’Armes jusqu’au niveau 5.','Construire le magasin d’armes au niveau 5 ou plus.')
+				juenOpis('Depuis toujours, les règles de guerre disent que la meilleure forme de défense c’est l’attaque. Développe le Magasin D’Armes jusqu’au niveau 5.','Construire le magasin d’armes au niveau 5 ou plus.') 
+				juenOpis('Dernièrement, tes rivaux ont toujours une longueur d’avance sur toi. Développe le Quotidien Local jusqu’au niveau 4 pour mieux réagir aux activités des espions adverses.','Construire le quotidien local au niveau 4 ou plus.')
+				juenOpis('Tes agents de sécurité ont découvert une clique d’espions. Ils occupent un des immeubles dans ton quartier. Organise un siège et extermine les comme des termites.','Lancer un siège sur son propre quartier. Plutôt simple.')
+				juenOpis('Depuis toujours, tu étais sûr que ce jour arriverait bien à un moment ou un autre... Passe à la Deuxième Zone et deviens l’un des membres du Conseil!','Passer en zone 2.')
 				juenOpis('Chaque vampire étant au premier rang doit envoyer les gens pour servir dans une Cathédrale. Rassemble 500 000 esclaves et fait en le sacrifice de 10% au Maitre.','Cliquer sur «Cliquez ici pour donnez les ressources» une fois les 500 000 de population sur soi.')
 				juenOpis('Chaque vampire étant au premier rang doit envoyer les gens pour servir dans une Cathédrale. Rassemble 500 000 esclaves et fais en le sacrifice de 10% au Maitre.','Cliquer sur «Cliquez ici pour donnez les ressources» une fois les 500 000 de population sur soi.')
-				juenOpis('Beaucoup de jours ce sont écouler depuis que ton fils est parti en expédition vers l`inconnu et tu n`as reçu aucune nouvelle de lui. Plein d`inquiétude, tu as décidé de commencer les recherches.','Réussir un pèlerinage avec comme test ??? qui est une moyenne entre votre intelligence et votre perception.')
-				juenOpis('Le prestige, le pouvoir, la splendeur ... pour maintenir tout cela tu as besoin d`argents. Tu dois agrandir tes revenus. Développe la Maison Close jusqu`au niveau 14.','Construire la maison close au niveau 14 ou plus.')
-				juenOpis('Ton pouvoir et ta réputation t’ont permis de devenir l’un des vampires le plus influent de la ville. Un des membres du Conseil t`a demandé de l`aider pour détruire la bande de mutants qui ravage les routes commerciales.','Combat en un contre un dans une quête de lointaine. Il y a plusieurs type de mutant, ne vous découragez pas au premier venu. Il est conseillé d`y aller avec un gros stuff cac.')
-				juenOpis('Fait un acte héroïque. Seul cet acte attirera sous ton drapeau les vampires puissants.','Réussir un pèlerinage qui complète la série des 9 pèlerinages à accomplir dans l`ordre. Dans le cas où vous les auriez déjà complétés, il suffit de réussir un pèlerinage.')
-				juenOpis('Fais un acte héroïque. Seul cet acte attirera sous ton drapeau les vampires puissants.','Réussir un pèlerinage qui complète la série des 9 pèlerinages à accomplir dans l`ordre. Dans le cas où vous les auriez déjà complétés, il suffit de réussir un pèlerinage.')
+				juenOpis('Beaucoup de jours ce sont écouler depuis que ton fils est parti en expédition vers l’inconnu et tu n’as reçu aucune nouvelle de lui. Plein d’inquiétude, tu as décidé de commencer les recherches.','Réussir un pèlerinage avec comme test ??? qui est une moyenne entre votre intelligence et votre perception.')
+				juenOpis('Le prestige, le pouvoir, la splendeur ... pour maintenir tout cela tu as besoin d’argents. Tu dois agrandir tes revenus. Développe la Maison Close jusqu’au niveau 14.','Construire la maison close au niveau 14 ou plus.')
+				juenOpis('Ton pouvoir et ta réputation t’ont permis de devenir l’un des vampires le plus influent de la ville. Un des membres du Conseil t’a demandé de l’aider pour détruire la bande de mutants qui ravage les routes commerciales.','Combat en un contre un dans une quête de lointaine. Il y a plusieurs type de mutant, ne vous découragez pas au premier venu. Il est conseillé d’y aller avec un gros stuff cac.')
+				juenOpis('Fait un acte héroïque. Seul cet acte attirera sous ton drapeau les vampires puissants.','Réussir un pèlerinage qui complète la série des 9 pèlerinages à accomplir dans l’ordre. Dans le cas où vous les auriez déjà complétés, il suffit de réussir un pèlerinage.')
+				juenOpis('Fais un acte héroïque. Seul cet acte attirera sous ton drapeau les vampires puissants.','Réussir un pèlerinage qui complète la série des 9 pèlerinages à accomplir dans l’ordre. Dans le cas où vous les auriez déjà complétés, il suffit de réussir un pèlerinage.')
 
 				// s4 (opisy zbieral Prime Lust - https://docs.google.com/document/d/1eMFHEc0ieY_254Qsjs-90peIv2olOjEYpvsVYC1wQSU/edit?pli=1
-				juenOpis('Il y a quelques solutions pour acquérir du respect dans le monde des morts-vivants. L`une d`elles c`est de posséder de puissants artefacts. Accomplis 4 Pèlerinages vers l`Inconnu.','Réussir votre 4ème pèlerinage. Dans le cas où vous l`auriez déjà complété, il suffit de réussir un pèlerinage.');
-				juenOpis('Tu as l`argent et tu sais comment le gagner. Maintenant tu dois gagner le respect auprès de la foule. Développe L`Agence d`Emploi jusqu`au 15-ième niveau. ','Construire l`agence d`emploi au niveau 15 ou plus.');
-				juenOpis('Le chefs d`une meute de loups-garous a juré de venger la bande que tu as achevé sur ton quartier. Tu trouvera sa cachette quelque part loin de la Cité si tu veux terminer sa misérable existence.','Combat en un contre deux ou trois dans une quête lointaine. Il est déconseillé d`y aller avec une arme à feu.');
-				juenOpis('Tu as remarqué une chaîne de contaminations d`une étrange maladie parmi la population de ton quartier. Tes espions suggèrent de chercher la cause dans les environs de La Cité. ','Trois combat en un contre un dans une quête dans les environs de La Cité. Pensez à prévoir assez de sang pour tenir trois combats d`affilé.');
-				juenOpis('Atteints le 35-ième niveau d`expérience. ','Gagner un niveau qui fait monter au moins au niveau 35.');
-				juenOpis('Pendant que tu menais ta dernière quête, un vampire-usurpateur a pris de force ton siège général. Avec l`aide de ton clan regagne ta place.','Lancer un siège sur son propre quartier. Plutôt simple.');
-				juenOpis('Fais bâtir toutes les constructions de la quatrième zone.','Construire la garnison, le trafiquant d`armes, les urgences et le mont de piété. Si certains d`entre d`eux sont déjà construit, il suffit de construire les autres. S`ils sont tous déjà construit, il suffit de monter le niveau de l`un d`eux.');
-				juenOpis('Le Pouvoir!! Avance jusqu`à la troisième zone et prends part au Cercle Intérieur.','Passer en zone 3.');
+				juenOpis('Il y a quelques solutions pour acquérir du respect dans le monde des morts-vivants. L’une d’elles c’est de posséder de puissants artefacts. Accomplis 4 Pèlerinages vers l’Inconnu.','Réussir votre 4ème pèlerinage. Dans le cas où vous l’auriez déjà complété, il suffit de réussir un pèlerinage.');
+				juenOpis('Tu as l’argent et tu sais comment le gagner. Maintenant tu dois gagner le respect auprès de la foule. Développe L’Agence d’Emploi jusqu’au 15-ième niveau. ','Construire l’agence d’emploi au niveau 15 ou plus.');
+				juenOpis('Le chefs d’une meute de loups-garous a juré de venger la bande que tu as achevé sur ton quartier. Tu trouvera sa cachette quelque part loin de la Cité si tu veux terminer sa misérable existence.','Combat en un contre deux ou trois dans une quête lointaine. Il est déconseillé d’y aller avec une arme à feu.');
+				juenOpis('Tu as remarqué une chaîne de contaminations d’une étrange maladie parmi la population de ton quartier. Tes espions suggèrent de chercher la cause dans les environs de La Cité. ','Trois combat en un contre un dans une quête dans les environs de La Cité. Pensez à prévoir assez de sang pour tenir trois combats d’affilé.');
+				juenOpis('Atteints le 35-ième niveau d’expérience. ','Gagner un niveau qui fait monter au moins au niveau 35.');
+				juenOpis('Pendant que tu menais ta dernière quête, un vampire-usurpateur a pris de force ton siège général. Avec l’aide de ton clan regagne ta place.','Lancer un siège sur son propre quartier. Plutôt simple.');
+				juenOpis('Fais bâtir toutes les constructions de la quatrième zone.','Construire la garnison, le trafiquant d’armes, les urgences et le mont de piété. Si certains d’entre d’eux sont déjà construit, il suffit de construire les autres. S’ils sont tous déjà construit, il suffit de monter le niveau de l’un d’eux.');
+				juenOpis('Le Pouvoir!! Avance jusqu’à la troisième zone et prends part au Cercle Intérieur.','Passer en zone 3.');
 				juenOpis('La tradition veut que chaque nouveaux Inquisiteur fait un festin auquel il invite tous les habitants de la ville. Le vampire avec ta rang doit montrer sa richesse et être généreux. Accumule sur ton compte 5 000 000 et faire le sacrifice de 10% de cette somme.','Cliquer sur «Cliquez ici pour donnez les ressources» une fois les 5 000 000 de LOL sur soi.');
-				juenOpis('Tes éclaireurs t`ont informé des phénomènes étranges sur une Grande Steppe. Ils suggerent que tu devrais verifier la situation avant qu`il soit trop tard.','Une fois que vous aurez la médaille du chasseur de têtes (tuer l`hydre), lorsque vous lancerez une expédition sur la Grande Steppe, vous aurez une chance de tomber contre l`Esprit de l`Inquisitrice.<br />Prévoyer de bons cogneurs car celle-ci a pas mal de vie et esquive pas mal de coup. Son agilité est très variable, il est conseillé d`avoir plus de 170 d`agilité pour les cac. Pour les gunner 95 de perception sera suffisant.');
-				juenOpis('Les personnages importants ont toujours beaucoup plus d`ennemis ce pourquoi tu as besoin d`avoir de la protection supplémentaire. Développe le Poste de Police et la Maison de Refuge jusqu`au niveau 18.','Construire le poste de police au niveau 18 et la maison du refuge au niveau 14 (le texte de la quête n`est pas à jour). Si l`un des deux est déjà construit à un niveau suffisant, il suffit de construire l`autre au niveau requis. Si les deux sont déjà construit aux niveaux requis, il suffit de monter le niveau de l`un d`eux.');
-				juenOpis('Les corps massacrés sans les têtes, sans les entrailles. Qu`est-ce qu`il se passe? Envoie les espions vers ton quartier et verifie qui est derriere ça. ','Espionner son propre quartier, quel que soit le stuff utilisé et le nombre d`espions envoyés, il y aura toujours 1% de chance de réussir cet espionnage.');
-				juenOpis('Les informations obtenues d`un jeune homme vous dirigent vers une auberge au dehors de la ville. Avec la groupe des autres vampires vérifiez ce qui se passe.','Lancer un siège.');
-				juenOpis('Soirée, quand tu t`es réveillé, tu as trouvé une lettre étrange sur ton bureau. Barbouillé de sang il n`a contenu que les trois mots: "Sauve", "Emprisonnée", "Loin" - écrits sur le parchemin avec précipitation, en désordre. Qu`est-ce que cela peut signifier?','Réussir une quête lointaine avec comme test ??? qui est une moyenne entre votre intelligence et votre agilité.');
+				juenOpis('Tes éclaireurs t’ont informé des phénomènes étranges sur une Grande Steppe. Ils suggerent que tu devrais verifier la situation avant qu’il soit trop tard.','Une fois que vous aurez la médaille du chasseur de têtes (tuer l’hydre), lorsque vous lancerez une expédition sur la Grande Steppe, vous aurez une chance de tomber contre l’Esprit de l’Inquisitrice.<br />Prévoyer de bons cogneurs car celle-ci a pas mal de vie et esquive pas mal de coup. Son agilité est très variable, il est conseillé d’avoir plus de 170 d’agilité pour les cac. Pour les gunner 95 de perception sera suffisant.');
+				juenOpis('Les personnages importants ont toujours beaucoup plus d’ennemis ce pourquoi tu as besoin d’avoir de la protection supplémentaire. Développe le Poste de Police et la Maison de Refuge jusqu’au niveau 18.','Construire le poste de police au niveau 18 et la maison du refuge au niveau 14 (le texte de la quête n’est pas à jour). Si l’un des deux est déjà construit à un niveau suffisant, il suffit de construire l’autre au niveau requis. Si les deux sont déjà construit aux niveaux requis, il suffit de monter le niveau de l’un d’eux.');
+				juenOpis('Les corps massacrés sans les têtes, sans les entrailles. Qu’est-ce qu’il se passe? Envoie les espions vers ton quartier et verifie qui est derriere ça. ','Espionner son propre quartier, quel que soit le stuff utilisé et le nombre d’espions envoyés, il y aura toujours 1% de chance de réussir cet espionnage.');
+				juenOpis('Les informations obtenues d’un jeune homme vous dirigent vers une auberge au dehors de la ville. Avec la groupe des autres vampires vérifiez ce qui se passe.','Lancer un siège.');
+				juenOpis('Soirée, quand tu t’es réveillé, tu as trouvé une lettre étrange sur ton bureau. Barbouillé de sang il n’a contenu que les trois mots: "Sauve", "Emprisonnée", "Loin" - écrits sur le parchemin avec précipitation, en désordre. Qu’est-ce que cela peut signifier?','Réussir une quête lointaine avec comme test ??? qui est une moyenne entre votre intelligence et votre agilité.');
 				juenOpis('Fait preuve de courage. Seulement cela attirera sous ton drapeau les meilleurs chasseurs.','Réussir une quête lointaine «Charisme».');
 
 				// s5
-				juenOpis('Ta situation financière nous inquiète, Acolyte. Développe La Maison Close jusqu`au niveau 3.','Construire la maison close au niveau 3 ou plus.');
+				juenOpis('Ta situation financière nous inquiète, Acolyte. Développe La Maison Close jusqu’au niveau 3.','Construire la maison close au niveau 3 ou plus.');
 				juenOpis('Le sang est la source de notre force. Bâtis 5 niveaux de La Boucherie sur ton quartier.','Construire la boucherie au niveau 5 ou plus.');
-				juenOpis('Atteints le 10-ième niveau d`expérience.','Gagner un niveau qui fait monter niveau 10.');
-				juenOpis('Un dangereux mutant a pénétré jusqu`à la zone extérieure de La Cité, il doit être arrêté avant qu`il ne cause plus de dégâts. Il a été repéré récemment dans les environs de La Cité.','Combat en un contre un dans une quête dans les environs de La Cité. Il est conseillé de monter agilité et perception.');
+				juenOpis('Atteints le 10-ième niveau d’expérience.','Gagner un niveau qui fait monter niveau 10.');
+				juenOpis('Un dangereux mutant a pénétré jusqu’à la zone extérieure de La Cité, il doit être arrêté avant qu’il ne cause plus de dégâts. Il a été repéré récemment dans les environs de La Cité.','Combat en un contre un dans une quête dans les environs de La Cité. Il est conseillé de monter agilité et perception.');
 				juenOpis('Examines soigneusement les environs de La Cité.','Réussir toutes les quêtes dans les environs de La Cité.');
-				juenOpis('Chaque vampire qui se respecte doit posséder une collection d`artefacts. Accomplis toutes les quêtes lointaines.','Réussir toutes les quêtes lointaines. Si c`est déjà fait, il suffit de réussir une quête lointaine.');
-				juenOpis('Il n`y a que les meilleurs de tous qui valent cette mission et qui possèdent des objets puissants. Accomplis un Pèlerinage vers l`Inconnu.','Réussir un pèlerinage. Le premier pèlerinage étant l\'agilité.');
-				juenOpis('Une bande de loups-garous rode dans les parages. Il faut l`éliminer en menant une offensive sur ton quartier.','Lancer un siège sur son propre quartier. Siège simple avec l`aide de son clan.');
-				juenOpis('L`argent et le trafique d`armes c`est les facteurs, qui te permettront de survivre. Pour stabiliser ta situation développes La Maison Close jusqu`au niveau 10 et fais construire le	Marché Noir.','Construire la maison close niveau 10 et le marché noir. Si l`un des deux est déjà construit, il suffit de construire l`autre. Si les deux sont déjà construit, il suffit de monter le niveau de l`un d`eux.')
+				juenOpis('Chaque vampire qui se respecte doit posséder une collection d’artefacts. Accomplis toutes les quêtes lointaines.','Réussir toutes les quêtes lointaines. Si c’est déjà fait, il suffit de réussir une quête lointaine.');
+				juenOpis('Il n’y a que les meilleurs de tous qui valent cette mission et qui possèdent des objets puissants. Accomplis un Pèlerinage vers l’Inconnu.','Réussir un pèlerinage. Le premier pèlerinage étant l\'agilité.');
+				juenOpis('Une bande de loups-garous rode dans les parages. Il faut l’éliminer en menant une offensive sur ton quartier.','Lancer un siège sur son propre quartier. Siège simple avec l’aide de son clan.');
+				juenOpis('L’argent et le trafique d’armes c’est les facteurs, qui te permettront de survivre. Pour stabiliser ta situation développes La Maison Close jusqu’au niveau 10 et fais construire le	Marché Noir.','Construire la maison close niveau 10 et le marché noir. Si l’un des deux est déjà construit, il suffit de construire l’autre. Si les deux sont déjà construit, il suffit de monter le niveau de l’un d’eux.')
 				juenOpis('Tu es né pour avancer. Prouve-le en joignant la IV zone.','Passer en zone 4.');
-				juenOpis('Augmente ton pouvoir dans le monde de l`obscurité en recrutant un vassal (tu peux le faire en utilisant le lien de reference qui se trouve dans la salle du trone).','Demander à quelqu`un de s`inscrire sur le jeu en utilisant le lien de référence.');
+				juenOpis('Augmente ton pouvoir dans le monde de l’obscurité en recrutant un vassal (tu peux le faire en utilisant le lien de reference qui se trouve dans la salle du trone).','Demander à quelqu’un de s’inscrire sur le jeu en utilisant le lien de référence.');
 
 				// moria/necro mix (+s1)
 				juenOpis('Pieniądze i handel bronią to czynniki, które pozwolą Ci przetrwać. Osiągnij stabilizację, rozbudowując Dom Publiczny na 8 poziom oraz Postój Taxi na 2 poziom.','Wybuduj Dom publiczny na poziom 8 oraz Postój Taxi na poziom 2. Jeśli już masz te budynki, wystarczy podnieść jeden z nich o poziom');
@@ -2702,7 +2703,7 @@ var launchUnmod = function() {
 							opis.parentNode.removeChild(opis);
 							i--;
 						} else {
-							opis.innerHTML='<tr><td colspan="6"><a id="UM_OP_showHideArenaStats" href="javascript:">DESACTIVER L`OPTION QUI CACHE LES STATS D\'ARÈNE !</a></td></tr>';
+							opis.innerHTML='<tr><td colspan="6"><a id="UM_OP_showHideArenaStats" href="javascript:">DESACTIVER L’OPTION QUI CACHE LES STATS D\'ARÈNE !</a></td></tr>';
 							document.getElementById('UM_OP_showHideArenaStats').addEventListener('click', function() {GM.setValue(id+"UM_OP_showHideArenaStats",false); location.reload();}, false);
 							added = true;
 						}
