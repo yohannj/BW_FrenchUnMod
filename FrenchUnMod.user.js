@@ -4,7 +4,7 @@
 // @description Advanced Bloodwars MODIFICATIONS
 // @include		http://r*.fr.bloodwars.net/*
 // @include		https://r*.fr.bloodwars.net/*
-// @version		3.0.7
+// @version		3.0.8
 // @grant		GM.getValue
 // @grant		GM.setValue
 // @grant		GM.setClipboard
