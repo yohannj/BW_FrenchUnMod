@@ -2116,7 +2116,7 @@ var launchUnmod = function() {
 
 						var found = false;
 						for(var j = 0; j < ids.length && !found; ++j) {
-							found = imgSrc.indexOf('/msg' + ids[j] + '.gif') > -1;
+							found = imgSrc.indexOf('/msg' + ids[j] + '.gif') > -1 || imgSrc.indexOf('/msg' + ids[j] + '.png') > -1;
 						}
 
 						if(found) {
